@@ -1,3 +1,13 @@
+---
+title: "且把一斤山色送与你~以后活动首发都在天叙那边（戳这）"
+date: 
+source: "公众号"
+source_url: 
+author: "金渐成"
+theme: ["创业、生意与助农", "年度总结与人生阶段"]
+tags: [来源/公众号]
+---
+
 ![](http://mmbiz.qpic.cn/mmbiz_png/OywhRh06vTnZicpAE8aGIyqxR9TiacpLicDWfjKCBT06XFdMhXV6Twl5cCmLjMapcK25Yt8xcVzibCYPb1LkIFDk7Q/300?wx_fmt=png)
 
 金渐成

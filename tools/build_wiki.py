@@ -27,6 +27,7 @@ INVESTORS = {
     "etf": {
         "name": "ETF拯救世界",
         "author": "ETF拯救世界",
+        "themes": "etf",
         "src": ROOT / "ETF拯救世界",
         "sources": {
             "weixin": "公众号",
@@ -38,6 +39,7 @@ INVESTORS = {
     "jjc": {
         "name": "金渐成",
         "author": "金渐成",
+        "themes": "jjc",
         "src": ROOT / "金渐成",
         "sources": {
             "weixin": "公众号",
@@ -334,6 +336,28 @@ THEMES = [
     "学习、写作与长期主义",
 ]
 
+THEMES_JJC = [
+    "美股投资与全球配置",
+    "科技巨头与AI浪潮",
+    "宏观、美元与利率",
+    "交易纪律、仓位与负成本",
+    "港股、A股与中国资产",
+    "房产、土地与实物资产",
+    "教育与亲子成长",
+    "家庭、婚姻与代际关系",
+    "健康、情绪与生活节奏",
+    "创业、生意与助农",
+    "认知、人性与决策",
+    "社会、历史与时代观察",
+    "年度总结与人生阶段",
+]
+
+THEME_SETS = {"etf": THEMES, "jjc": THEMES_JJC}
+
+
+def get_themes(cfg):
+    return THEME_SETS.get(cfg.get("themes", "etf"), THEMES)
+
 FM_RE = re.compile(r"^---\n(.*?)\n---", re.S)
 
 
@@ -351,6 +375,7 @@ def read_meta(path):
 
 def build_indices(cfg):
     name = cfg["name"]
+    themes = get_themes(cfg)
     vault = ROOT / "wiki" / name
     art = vault / "20-文章"
     (vault / "00-索引").mkdir(parents=True, exist_ok=True)
@@ -390,8 +415,8 @@ def build_indices(cfg):
     (vault / "00-索引" / "来源说明.md").write_text("\n".join(sl), encoding="utf-8")
 
     # 主题页骨架 + 主题地图
-    maplines = [f"# {name} · 主题地图\n", f"共 {len(THEMES)} 个一级主题。\n"]
-    for i, t in enumerate(THEMES, 1):
+    maplines = [f"# {name} · 主题地图\n", f"共 {len(themes)} 个一级主题。\n"]
+    for i, t in enumerate(themes, 1):
         nn = f"{i:02d}-{t}"
         (vault / "10-主题" / f"{nn}.md").write_text(
             f"---\ntitle: {yaml_str(t)}\ntype: 主题\n---\n\n# {t}\n\n> 待 Phase 2 填充：金句 / 核心观点 / 相关文章双链。\n\n## 金句\n\n## 核心观点\n\n## 相关文章\n",
@@ -407,7 +432,7 @@ def build_indices(cfg):
     home.append("- [[00-索引/时间线\\|时间线]]")
     home.append("- [[00-索引/来源说明\\|来源说明]]\n")
     home.append("## 一级主题\n")
-    for i, t in enumerate(THEMES, 1):
+    for i, t in enumerate(themes, 1):
         home.append(f"{i}. [[10-主题/{i:02d}-{t}\\|{t}]]")
     home.append("\n## 文章归档\n")
     for s, c in counts.items():

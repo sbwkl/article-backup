@@ -1,3 +1,13 @@
+---
+title: "AMD大涨37.5%，得益于它与OpenAI牵手，达成一项多年期协议:"
+date: 2025-10-06
+source: "公众号"
+source_url: 
+author: "天玑"
+theme: ["科技巨头与AI浪潮", "宏观、美元与利率"]
+tags: [来源/公众号]
+---
+
 ![](http://mmbiz.qpic.cn/mmbiz_png/OywhRh06vTnZicpAE8aGIyqxR9TiacpLicDWfjKCBT06XFdMhXV6Twl5cCmLjMapcK25Yt8xcVzibCYPb1LkIFDk7Q/300?wx_fmt=png)
 
 金渐成

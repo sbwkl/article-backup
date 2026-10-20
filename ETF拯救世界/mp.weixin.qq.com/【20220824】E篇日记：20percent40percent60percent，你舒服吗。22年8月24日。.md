@@ -1,8 +1,12 @@
 ---
+title: "E篇日记：20%40%60%，你舒服吗。22年8月24日。"
+date: 2022-08-24
+source: "公众号"
+source_url: https://mp.weixin.qq.com/s/yahNfFy2xJHkhG0MhxxS0A
+author: "ETF拯救世界"
+theme: ["仓位、情绪与舒适区", "认知、人性与知行合一", "估值、周期与位置"]
+tags: [来源/公众号]
 created: 2025-12-10T13:12:09 (UTC +08:00)
-tags: []
-source: https://mp.weixin.qq.com/s/yahNfFy2xJHkhG0MhxxS0A
-author: ETF拯救世界
 ---
 
 # E篇日记：20%40%60%，你舒服吗。22年8月24日。
