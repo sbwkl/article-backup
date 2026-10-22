@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Phase 2/3: 把主题标签写回笔记 frontmatter，并生成主题页。
+"""Phase 2/3: 把主题标签写回 wiki 笔记 frontmatter，并生成主题页。
+
+已弃用：wiki 不再保留 20-文章 存根，索引请用 tools/build_links.py 生成。
 
 用法:
-    # tags.json: {"20-文章/公众号/2020-01-01 xxx": ["02","05"], ...}
+    # tags.json: {"公众号/2020-01-01 xxx": ["02","05"], ...}
     python3 tools/apply_tags.py etf tags.json
 """
 import json
@@ -115,7 +117,9 @@ def regen_maps(vault: Path, counts_by_theme: dict, src_counts: dict, name: str, 
 def main():
     inv, tags_file = sys.argv[1], sys.argv[2]
     cfg = INVESTORS[inv]
-    vault = Path(__file__).resolve().parent.parent / "wiki" / cfg["name"]
+    vault = cfg["src"] / "wiki"
+    if not (vault / "20-文章").exists():
+        sys.exit(f"{cfg['name']} 的 20-文章 存根已移除；请改用 python3 tools/build_links.py {inv}")
     data = json.loads(Path(tags_file).read_text(encoding="utf-8"))
 
     themes = get_themes(cfg)

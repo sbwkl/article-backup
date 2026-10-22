@@ -7,8 +7,8 @@
     python3 tools/build_wiki.py jjc            # 处理 金渐成
 
 产出:
-    wiki/<投资人>/20-文章/<来源>/YYYY-MM-DD 标题.md
-    wiki/<投资人>/20-文章/<来源>/_assets/...(图片)
+    <投资人>/wiki/20-文章/<来源>/YYYY-MM-DD 标题.md
+    <投资人>/wiki/20-文章/<来源>/_assets/...(图片)
 """
 import argparse
 import base64
@@ -124,7 +124,7 @@ IMG_LINK = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
 def process_weixin(cfg, only=None):
     name = cfg["name"]
     src = cfg["src"] / "mp.weixin.qq.com"
-    vault = ROOT / "wiki" / name
+    vault = cfg["src"] / "wiki"
     out_dir = vault / "20-文章" / "公众号"
     assets_dir = out_dir / "_assets"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -196,7 +196,7 @@ LOCAL_IMG = re.compile(r"(!\[[^\]]*\]\()([^)\s]+?\.(?:png|jpe?g|gif|webp))\)", r
 def process_qieman(cfg):
     name = cfg["name"]
     src = cfg["src"] / "qieman.com"
-    vault = ROOT / "wiki" / name
+    vault = cfg["src"] / "wiki"
     out_dir = vault / "20-文章" / "且慢社区"
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -251,7 +251,7 @@ IMG_RE = re.compile(r'<img[^>]*src="data:image/([a-zA-Z]+);base64,([^"]+)"[^>]*/
 def process_weibo(cfg):
     name = cfg["name"]
     src = cfg["src"] / "weibo.com"
-    vault = ROOT / "wiki" / name
+    vault = cfg["src"] / "wiki"
     out_dir = vault / "20-文章" / "微博"
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -301,7 +301,7 @@ def process_weibo(cfg):
 def process_fache(cfg):
     name = cfg["name"]
     src = cfg["src"] / "且慢发车"
-    vault = ROOT / "wiki" / name
+    vault = cfg["src"] / "wiki"
     out_dir = vault / "20-文章" / "发车"
     out_dir.mkdir(parents=True, exist_ok=True)
     files = sorted(src.glob("*.md"))
@@ -376,7 +376,7 @@ def read_meta(path):
 def build_indices(cfg):
     name = cfg["name"]
     themes = get_themes(cfg)
-    vault = ROOT / "wiki" / name
+    vault = cfg["src"] / "wiki"
     art = vault / "20-文章"
     (vault / "00-索引").mkdir(parents=True, exist_ok=True)
     (vault / "10-主题").mkdir(parents=True, exist_ok=True)
