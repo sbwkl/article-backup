@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英伟达内在价值推演 · DCF 与 远期PE 分开计算（金渐成方法）</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1c2733; --sub:#5b6b7b; --line:#e3e8ee;
+    --blue:#2563eb; --green:#059669; --orange:#d97706; --red:#dc2626; --purple:#7c3aed;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:24px 16px 60px}
+  .wrap{max-width:1180px;margin:0 auto}
+  h1{font-size:22px;margin-bottom:4px}
+  h2{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2 .step{background:var(--ink);color:#fff;border-radius:6px;font-size:12px;padding:2px 8px;font-family:var(--mono)}
+  .meta{color:var(--sub);font-size:13px;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+  .badge{font-size:11px;border-radius:4px;padding:1px 6px;white-space:nowrap;font-weight:500}
+  .b-real{background:#d1fae5;color:#065f46}
+  .b-guide{background:#dbeafe;color:#1e40af}
+  .b-cons{background:#ede9fe;color:#5b21b6}
+  .b-est{background:#fef3c7;color:#92400e}
+  .b-tpl{background:#e5e7eb;color:#374151}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--sub);margin-bottom:14px;align-items:center}
+  /* tabs */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+  .tabs button{font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 18px;cursor:pointer;color:var(--sub)}
+  .tabs button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+  .tabs button:hover:not(.active){border-color:var(--blue);color:var(--blue)}
+  .method-intro{font-size:13.5px;color:var(--sub);background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:14px;line-height:1.7}
+  .method-intro b{color:var(--ink)}
+  /* summary */
+  .summary{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
+  @media(max-width:900px){.summary{grid-template-columns:1fr}}
+  .stat{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .stat .k{font-size:12px;color:var(--sub)}
+  .stat .v{font-size:24px;font-weight:700;font-family:var(--mono);margin-top:2px}
+  .stat .s{font-size:12px;color:var(--sub);margin-top:2px}
+  /* params */
+  .param{border-bottom:1px dashed var(--line);padding:12px 0}
+  .param:last-child{border-bottom:none}
+  .param-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .param-head label{font-weight:600;font-size:14px}
+  .param-head output{margin-left:auto;font-family:var(--mono);font-weight:700;color:var(--blue);font-size:15px}
+  .param input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--blue);height:22px}
+  .param-desc{font-size:12.5px;color:var(--sub);line-height:1.6}
+  .param-desc b{color:var(--ink)}
+  .presets{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+  .presets button,.scenarios button,.reset{font-size:12px;border:1px solid var(--line);background:#f9fafb;border-radius:6px;padding:3px 10px;cursor:pointer;color:var(--ink)}
+  .presets button:hover,.scenarios button:hover,.reset:hover{border-color:var(--blue);color:var(--blue)}
+  .scenarios{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+  .scenarios .lbl{font-size:13px;color:var(--sub)}
+  .scenarios button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  /* formula & tables */
+  .formula{font-family:var(--mono);font-size:13px;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;white-space:pre-wrap;line-height:1.9;overflow-x:auto}
+  .formula .hl{color:var(--blue);font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+  th{color:var(--sub);font-weight:500;text-align:right;border-bottom:1px solid var(--line);padding:5px 8px}
+  td{text-align:right;padding:5px 8px;border-bottom:1px solid #f1f4f8;font-family:var(--mono)}
+  th:first-child,td:first-child{text-align:left}
+  tr.total td{font-weight:700;border-top:2px solid var(--line);background:#f8fafc}
+  .result-line{display:flex;justify-content:space-between;font-size:14px;padding:4px 0;border-bottom:1px dashed var(--line)}
+  .result-line:last-child{border-bottom:none}
+  .result-line .rv{font-family:var(--mono);font-weight:600}
+  .result-line.big{font-size:16px}
+  .result-line.big .rv{color:var(--blue);font-size:20px}
+  .warn{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:8px;padding:8px 12px;font-size:13px;margin:8px 0;display:none}
+  .note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:8px;padding:8px 12px;font-size:12.5px;margin:8px 0}
+  /* zone chart */
+  .zone-chart{position:relative;margin:14px 0 6px}
+  .track{position:relative;height:34px;margin:10px 0}
+  .track .tlabel{position:absolute;left:0;top:-16px;font-size:12px;color:var(--sub)}
+  .track .bar{position:absolute;top:6px;height:22px;border-radius:6px;opacity:.85}
+  .track .bar span{position:absolute;left:50%;transform:translateX(-50%);top:1px;font-size:11.5px;color:#fff;font-family:var(--mono);white-space:nowrap}
+  .price-line{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--red);z-index:5}
+  .price-line::after{content:attr(data-label);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:11.5px;color:var(--red);font-weight:700;white-space:nowrap;font-family:var(--mono)}
+  .axis{position:relative;height:18px;border-top:1px solid var(--line);margin-top:8px}
+  .axis span{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--sub);font-family:var(--mono);top:2px}
+  /* sensitivity */
+  .sens td,.sens th{text-align:center;padding:6px 4px;font-size:12.5px}
+  .sens td.cur{outline:2px solid var(--ink);outline-offset:-2px;font-weight:700}
+  .conclusion{font-size:14.5px;line-height:1.8}
+  .conclusion b{color:var(--blue)}
+  details{margin-top:10px}
+  summary{cursor:pointer;font-size:13.5px;color:var(--blue);font-weight:600}
+  .facts td:first-child{font-family:inherit}
+  .foot{color:var(--sub);font-size:12px;margin-top:20px;line-height:1.8}
+  .tvbar{display:flex;height:16px;border-radius:5px;overflow:hidden;margin:6px 0;font-size:10.5px;color:#fff;font-family:var(--mono)}
+  .tvbar div{display:flex;align-items:center;justify-content:center;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>英伟达内在价值推演 · 两种方法分开计算</h1>
+  <div class="meta">方法：金渐成【20250930】微软估值模板 +【20251001】估值框架 ｜ 数据基准：FY27Q3 财报（2026-11-17 发布）｜ 单位：亿美元，每股美元</div>
+
+  <div class="legend">
+    参数来源标注：
+    <span class="badge b-real">财报实际</span>
+    <span class="badge b-guide">公司指引</span>
+    <span class="badge b-cons">市场共识</span>
+    <span class="badge b-est">估算/假设</span>
+    <span class="badge b-tpl">金渐成模板默认</span>
+    <button class="reset" onclick="resetAll()" style="margin-left:auto">↺ 全部重置为默认</button>
+  </div>
+
+  <div class="card">
+    <h2><span class="step">共用输入</span>当前股价（市场数据，两种方法各自用它下结论）</h2>
+    <div id="shared-params"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="step">共用输入</span>FY27Q3 财报关键事实（只读，2026-11-17 发布）</h2>
+    <details open>
+      <summary>展开 / 收起财报输入及含义</summary>
+      <table class="facts">
+        <tr><th style="text-align:left">项目</th><th>数值</th><th style="text-align:left">含义</th></tr>
+        <tr><td>Q3 营收</td><td>1158.4</td><td style="text-align:left;font-family:inherit">季度总收入，同比+103%，环比+20%</td></tr>
+        <tr><td>Q3 毛利率</td><td>74.8%</td><td style="text-align:left;font-family:inherit">扣代工/内存等直接成本后的利润率，定价权的证据</td></tr>
+        <tr><td>Q3 non-GAAP 净利</td><td>648.7</td><td style="text-align:left;font-family:inherit">剔除17.7亿股权浮盈等一次性项后的真实利润（FY27起已含SBC）</td></tr>
+        <tr><td>Q3 FCF</td><td>437.8</td><td style="text-align:left;font-family:inherit">经营现金流482.5 − 资本开支44.2 − 设备款0.5</td></tr>
+        <tr><td>9个月 FCF</td><td>1136.7</td><td style="text-align:left;font-family:inherit">Q1 485.5 + Q2 213.4 + Q3 437.8（Q2被应收暴增压低）</td></tr>
+        <tr><td>9个月 non-GAAP EPS</td><td>6.77</td><td style="text-align:left;font-family:inherit">1.87 + 2.22 + 2.68，实际值</td></tr>
+        <tr><td>净现金</td><td>653.6</td><td style="text-align:left;font-family:inherit">现金290.9+有价债券244.2+有价股权442.2−有息负债323.7（严格口径剔除股权=211.4）</td></tr>
+        <tr><td>稀释股本</td><td>241.86 亿股</td><td style="text-align:left;font-family:inherit">逐季缩减：243.91→242.85→241.86，回购注销中</td></tr>
+        <tr><td>Q4 指引</td><td>营收1300±3%</td><td style="text-align:left;font-family:inherit">毛利率71–72%（Rubin爬坡致降）、opex 107、税率16–18%、不含中国数据中心</td></tr>
+        <tr><td>FY28 营收</td><td>共识5700 / 指引7200</td><td style="text-align:left;font-family:inherit">共识+44% vs 公司首次年度指引+70%，最大分歧点</td></tr>
+        <tr><td>警示项</td><td>FCF/净利=69%</td><td style="text-align:left;font-family:inherit">应收810亿（周转64天拉长中）+存货397亿占用现金；非上市股权655亿未计入净现金</td></tr>
+      </table>
+    </details>
+  </div>
+
+  <div class="tabs">
+    <button id="tabbtn-dcf" class="active" onclick="showTab('dcf',this)">方法一 · DCF 绝对估值</button>
+    <button id="tabbtn-pe" onclick="showTab('pe',this)">方法二 · 远期PE 相对估值</button>
+    <button id="tabbtn-cross" onclick="showTab('cross',this)">交叉验证（可选）</button>
+  </div>
+
+  <section id="tab-dcf">
+    <div class="card">
+      <h2><span class="step">方法一</span>DCF 绝对估值 —— 公司自己值多少</h2>
+      <div class="method-intro">这一页<b>只看公司本身</b>：未来每年能产多少自由现金，按要求的回报率折回今天，加总后加净现金、除股本。不参考市场情绪、不参考同行股价。参数与结论都只属于 DCF。</div>
+      <div class="scenarios">
+        <span class="lbl">DCF 情景（只调 g 和 r）：</span>
+        <button data-sc="bear" onclick="applyScenario('dcf','bear',this)">保守（g15%·r10%）</button>
+        <button data-sc="base" class="active" onclick="applyScenario('dcf','base',this)">中性（g25%·r8.5%）</button>
+        <button data-sc="bull" onclick="applyScenario('dcf','bull',this)">乐观（g35%·r8.5%）</button>
+      </div>
+      <div id="dcf-params"></div>
+      <div class="warn" id="dcf-warn">⚠ 折现率过于接近永续增长率，终值将爆炸失真——请拉大两者差距（r 至少比永续高 2 个百分点）。</div>
+      <div class="formula" id="dcf-formula"></div>
+      <table id="dcf-table"></table>
+      <div class="result-line"><span>终值现值占比（第5年以后的价值权重）</span><span class="rv" id="tv-pct"></span></div>
+      <div class="tvbar"><div id="tv-explicit" style="background:#2563eb"></div><div id="tv-terminal" style="background:#94a3b8"></div></div>
+      <div class="note">终值占比越高，估值越依赖"永续假设"而非近期业绩——这正是金渐成说 DCF"对假设极其敏感、更适合机构"的原因。占比&gt;80% 时请把结论当区间而非精确值。</div>
+      <div class="result-line"><span>企业价值 EV（前N年现值 + 终值现值）</span><span class="rv" id="r-ev"></span></div>
+      <div class="result-line"><span>+ 净现金 → 股权价值</span><span class="rv" id="r-equity"></span></div>
+      <div class="result-line big"><span>÷ 股本 → 每股内在价值</span><span class="rv" id="r-pershare"></span></div>
+      <div class="result-line"><span>风险调整视角（折现率 +1.5pct）</span><span class="rv" id="r-pershare-risk"></span></div>
+      <div class="conclusion" id="dcf-verdict" style="margin-top:12px"></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="step">敏感性</span>DCF 每股价值：增速 g × 折现率 r（其余参数取当前值）</h2>
+      <table class="sens" id="sens-table"></table>
+      <div class="note">颜色相对当前股价：<span style="color:#059669">绿=价值高于股价（低估）</span>，<span style="color:#d97706">黄=接近</span>，<span style="color:#dc2626">红=价值低于股价（高估）</span>。黑框=当前参数组合。增速 ±10pct 对估值的影响远大于 FCF 基数 ±10%——模型真正的命门是 g 和永续假设。</div>
+    </div>
+  </section>
+
+  <section id="tab-pe" hidden>
+    <div class="card">
+      <h2><span class="step">方法二</span>远期PE 相对估值 —— 市场习惯给多少</h2>
+      <div class="method-intro">这一页<b>只看市场的定价习惯</b>：先推明年（FY28）每股收益 EPS，再乘"市场愿意给的合理倍数"。不做现金流折现。参数与结论都只属于远期PE。</div>
+      <div class="scenarios">
+        <span class="lbl">PE 情景（只调营收和PE倍数）：</span>
+        <button data-sc="bear" onclick="applyScenario('pe','bear',this)">保守（PE15–18）</button>
+        <button data-sc="base" class="active" onclick="applyScenario('pe','base',this)">中性（PE20–25）</button>
+        <button data-sc="bull" onclick="applyScenario('pe','bull',this)">乐观（PE28–32）</button>
+        <button data-sc="guide" onclick="applyScenario('pe','guide',this)">信指引（营收7200·PE25–32）</button>
+      </div>
+      <div class="formula" id="fy27-formula"></div>
+      <div id="pe-params"></div>
+      <div class="formula" id="pe-formula"></div>
+      <div class="result-line"><span>FY28E 净利润</span><span class="rv" id="r-ni28"></span></div>
+      <div class="result-line"><span>FY28E EPS</span><span class="rv" id="r-eps28"></span></div>
+      <div class="result-line big"><span>中性区间 = EPS × PE下限~上限</span><span class="rv" id="r-peband"></span></div>
+      <div class="result-line"><span>现价对应 FY27E PE / FY28E PE</span><span class="rv" id="r-implied"></span></div>
+      <div class="result-line"><span>PEG（FY28E PE ÷ 营收增速%）</span><span class="rv" id="r-peg"></span></div>
+      <div class="note">他的规矩：PEG≈1 合理、&lt;1 低估、≥2 卖出；"PE30倍增速40% 比 PE20倍增速15% 更便宜"。但周期峰值利润上的低 PE 可能是陷阱，所以保守情景只给 15–18 倍。</div>
+      <div class="conclusion" id="pe-verdict" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <section id="tab-cross" hidden>
+    <div class="card">
+      <h2><span class="step">可选</span>交叉验证：把两页的独立结论摆在一起</h2>
+      <div class="method-intro">这一页<b>不做任何新计算</b>，只把方法一、方法二各自算出的区间并列对比——金渐成"交叉验证"的一步。建议先看懂前两页再来这里。</div>
+      <div class="summary">
+        <div class="stat"><div class="k">方法一结论 · DCF（r 至 r+1.5pct）</div><div class="v" id="cross-dcf">—</div><div class="s" id="cross-dcf-sub"></div></div>
+        <div class="stat"><div class="k">方法二结论 · 远期PE 中性区间</div><div class="v" id="cross-pe">—</div><div class="s" id="cross-pe-sub"></div></div>
+      </div>
+      <div class="zone-chart" id="zone-chart"></div>
+      <div class="conclusion" id="conclusion"></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    方法论出处：金渐成【20250930】变化正在发生（微软 DCF+远期PE 双法模板）、【20251001】赚钱有多难（估值框架与情景分析）、【20251015】惊涛之后开始筑堤（六要素排雷）、【20250320】选择比努力重要（三表分工/TTM vs 动态PE）。<br>
+    财报来源：NVIDIA FY27Q3 新闻稿（nvidianews.nvidia.com，2026-11-17）。FY28 共识营收约5700亿（+44%）来自 Yahoo Finance/Reuters 报道，公司指引+70%。<br>
+    本页为方法论教学推演：所有"估算/假设"参数均可调，默认值不代表任何机构观点，不构成投资建议。
+  </div>
+</div>
+
+<script>
+"use strict";
+// ---------- 参数配置 ----------
+const PARAMS = [
+ {key:"price", group:"shared", label:"当前股价（美元）", min:80, max:300, step:1, def:165, badge:"real",
+  desc:"11-13收盘166，11-16跌2%≈163，财报后盘后+3%≈167-168，取165。这轮从高点236回撤超30%（黄仁勋离职传闻+出口调查）。"},
+ {key:"fcf0", group:"dcf", label:"FCF₀ 基数（亿/年）", min:1000, max:2000, step:1, def:1550, badge:"est",
+  desc:"自由现金流=经营现金流−资本开支，即真正可自由支配的现金。基数回答<b>现在一年产多少现金</b>，只做单位换算不含预测（增长记在g里，两处都记=重复计算）。Q3年化1751偏乐观（赌回款永远顺利），9个月年化1516偏滞后（含体量小30-40%的旧季度），1550≈净利年化2595×可持续转化率60%，对回款风险收一道保险费。",
+  presets:[["9月年化 1516",1516],["采用 1550",1550],["Q3年化 1751",1751]]},
+ {key:"g", group:"dcf", label:"g 高增长期年增速（%）", min:0, max:50, step:1, def:25, badge:"est",
+  desc:"未来N年的<b>年平均</b>增速，不是最新季度的斜率。FY28共识+44%、指引+70%，但必然逐年放缓（戴维斯双杀风险），25%≈共识打六折作五年平滑。等比外推最新季度=把峰值增速永久化，正是他警告的陷阱。",
+  presets:[["保守 15%",15],["中性 25%",25],["乐观 35%",35]]},
+ {key:"years", group:"dcf", label:"高增长期年数 N", min:3, max:10, step:1, def:5, badge:"tpl",
+  desc:"两段式DCF的第一段长度，他的微软模板用5年。N年后切换到永续增长。AI建设能见度（指引/订单）支持5年，但越长越不可靠。"},
+ {key:"r", group:"dcf", label:"r 折现率（%）", min:6, max:14, step:0.1, def:8.5, badge:"tpl",
+  desc:"投资人要求的年回报率=无风险利率+风险溢价，未来的钱按它打折成今天的价值。8.5%是他给<b>治理正常的微软</b>的值；英伟达现有CEO缺位+出口调查+周期风险，理应更高——所以同时显示 r+1.5pct 的风险调整值。长债收益率上升会抬高r、压低估值（他的'透明天花板'）。"},
+ {key:"gt", group:"dcf", label:"永续增长率（%）", min:0, max:4, step:0.1, def:3, badge:"tpl",
+  desc:"N年之后假设公司永远按此速度增长，3%≈长期名义GDP增速，通用惯例。对芯片公司偏仁慈（技术替代风险），注意下方终值占比——本模型83%的价值押在这一个数字上。"},
+ {key:"netcash", group:"dcf", label:"净现金（亿）", min:0, max:1000, step:1, def:654, badge:"real",
+  desc:"现金290.9+有价债券244.2+有价股权442.2−有息负债323.7=653.6。DCF算的是生意本身的价值，加上净现金才是股东的完整价值。严格口径剔除可波动股权=211；非上市股权655亿（OpenAI等）卖不掉未计入。",
+  presets:[["严格口径 211",211],["含股权 654",654]]},
+ {key:"shares", group:"dcf", label:"股本（亿股）", min:225, max:250, step:0.5, def:240, badge:"est",
+  desc:"Q3稀释加权241.86，回购每季净减约1亿股（Q3回购221亿≈注销1.3亿股，SBC新增抵消一部分），取240。股本越小每股价值越高——回购增厚EPS的逻辑。"},
+ {key:"rev28", group:"pe", label:"FY28 营收（亿）", min:4000, max:8000, step:50, def:5700, badge:"cons",
+  desc:"最大分歧点：市场共识约5700（+44%） vs 公司首次年度指引7200（+70%）。共识已经打过折，指引是管理层口径。两个都算一遍，区间就是分歧的量化。",
+  presets:[["共识 5700",5700],["指引 7200",7200]]},
+ {key:"gm28", group:"pe", label:"FY28 毛利率（%）", min:60, max:78, step:0.5, def:71.5, badge:"guide",
+  desc:"Q4指引71–72%的中值。从74.8%下滑是Rubin爬坡/HBM成本所致，管理层称71–72%是底部。毛利率=定价权，台积电62%、英伟达71%+都是护城河的证据。"},
+ {key:"opex28", group:"pe", label:"FY28 运营费用（亿）", min:300, max:600, step:10, def:460, badge:"est",
+  desc:"研发+销售管理费用。Q4指引107/季×4≈428，全年随扩张增至约460。opex增速(57%)低于营收增速(103%)=经营杠杆健康。"},
+ {key:"tax", group:"pe", label:"税率（%）", min:12, max:22, step:0.5, def:17, badge:"guide",
+  desc:"公司指引FY27税率16–18%的中值，假设FY28延续。"},
+ {key:"shares28", group:"pe", label:"FY28 股本（亿股）", min:220, max:245, step:0.5, def:235, badge:"est",
+  desc:"241.86−5个季度×约1.3≈235，假设回购按当前节奏持续（9月又追加1500亿授权）。若不减用241.86，EPS约低3%，结论不变。"},
+ {key:"pelo", group:"pe", label:"合理PE 下限（倍）", min:8, max:40, step:1, def:20, badge:"est",
+  desc:"他的微软做法：按'增长能见度+质量'定合理远期PE区间，而非机械套增速表。20–25倍参考他的英伟达实操锚'PE<25买入'（20250304），并对治理/出口/周期风险打了折。周期峰值利润保守只给15–18倍。"},
+ {key:"pehi", group:"pe", label:"合理PE 上限（倍）", min:10, max:50, step:1, def:25, badge:"est",
+  desc:"区间上限。若治理危机解除+指引兑现，可上修至28–32（乐观情景）。他的增速表：40-50%增速→45倍+，但市场显然不信指引，机械套用会得出$576的荒谬值。"}
+];
+const BADGE = {real:["b-real","财报实际"],guide:["b-guide","公司指引"],cons:["b-cons","市场共识"],est:["b-est","估算/假设"],tpl:["b-tpl","模板默认"]};
+const S = {}; PARAMS.forEach(p=>S[p.key]=p.def);
+
+// ---------- 标签页 ----------
+function showTab(name,btn){
+  for(const t of ["dcf","pe","cross"]){
+    document.getElementById("tab-"+t).hidden = (t!==name);
+    document.getElementById("tabbtn-"+t).classList.toggle("active",t===name);
+  }
+}
+
+// ---------- 渲染滑条 ----------
+function buildParams(){
+  for(const grp of ["shared","dcf","pe"]){
+    const box=document.getElementById(grp+"-params");
+    box.innerHTML = PARAMS.filter(p=>p.group===grp).map(p=>{
+      const [cls,txt]=BADGE[p.badge];
+      const presets=(p.presets||[]).map(([t,v])=>`<button onclick="setP('${p.key}',${v})">${t}</button>`).join("");
+      return `<div class="param">
+        <div class="param-head"><label>${p.label}</label><span class="badge ${cls}">${txt}</span><output id="out-${p.key}"></output></div>
+        <input type="range" id="sl-${p.key}" min="${p.min}" max="${p.max}" step="${p.step}" value="${p.def}" oninput="setP('${p.key}',parseFloat(this.value))">
+        <div class="param-desc">${p.desc}</div>
+        ${presets?`<div class="presets">${presets}</div>`:""}
+      </div>`;
+    }).join("");
+  }
+}
+function setP(k,v){ S[k]=v; document.getElementById("sl-"+k).value=v; render(); }
+function resetAll(){
+  PARAMS.forEach(p=>S[p.key]=p.def); syncSliders();
+  document.querySelectorAll(".scenarios").forEach(box=>{
+    box.querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.sc==="base"));
+  });
+  render();
+}
+function syncSliders(){ PARAMS.forEach(p=>document.getElementById("sl-"+p.key).value=S[p.key]); }
+const SCENARIOS={
+  dcf:{bear:{g:15,r:10},base:{g:25,r:8.5},bull:{g:35,r:8.5}},
+  pe:{bear:{pelo:15,pehi:18,rev28:5700},base:{pelo:20,pehi:25,rev28:5700},
+      bull:{pelo:28,pehi:32,rev28:5700},guide:{pelo:25,pehi:32,rev28:7200}}
+};
+function applyScenario(group,name,btn){
+  Object.assign(S,SCENARIOS[group][name]); syncSliders();
+  btn.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active"); render();
+}
+
+// ---------- 计算 ----------
+const fmt0=x=>Math.round(x).toLocaleString("en-US");
+const fmt1=x=>x.toFixed(1);
+function dcf(fcf0,g,r,n,gt,nc,sh){
+  g/=100;r/=100;gt/=100;
+  if(r<=gt+0.005) return null;
+  let pv=0,f=fcf0,rows=[];
+  for(let t=1;t<=n;t++){f*=1+g;const d=Math.pow(1+r,t);const p=f/d;pv+=p;rows.push({t,f,d,p});}
+  const tv=f*(1+gt)/(r-gt), pvtv=tv/Math.pow(1+r,n);
+  const ev=pv+pvtv, eq=ev+nc, ps=eq/sh;
+  return {rows,pv,tv,pvtv,ev,eq,ps,tvpct:pvtv/ev*100};
+}
+function fy27eps(){ // Q4按指引推算 + 9个月实际
+  const q4ni=(1300*0.715-107+2.5)*(1-0.17), q4eps=q4ni/241;
+  return {q4ni,q4eps,total:6.77+q4eps};
+}
+
+// ---------- 渲染 ----------
+function render(){
+  PARAMS.forEach(p=>{
+    const v=S[p.key];
+    const unit=p.key==="price"?" 美元":p.key==="years"?" 年":(p.key.startsWith("shares")?" 亿股":(["g","r","gt","gm28","tax"].includes(p.key)?" %":(["pelo","pehi"].includes(p.key)?" 倍":" 亿")));
+    document.getElementById("out-"+p.key).textContent=(p.step<1?fmt1(v):fmt0(v))+unit;
+  });
+
+  // ===== 方法一：DCF（独立计算、独立结论） =====
+  const D=dcf(S.fcf0,S.g,S.r,S.years,S.gt,S.netcash,S.shares);
+  const Dr=dcf(S.fcf0,S.g,S.r+1.5,S.years,S.gt,S.netcash,S.shares);
+  const warn=document.getElementById("dcf-warn");
+  if(!D){
+    warn.style.display="block";
+    document.getElementById("dcf-table").innerHTML="";
+    document.getElementById("dcf-formula").textContent="";
+    document.getElementById("dcf-verdict").innerHTML="参数无效：折现率必须明显高于永续增长率。";
+  } else {
+    warn.style.display="none";
+    document.getElementById("dcf-formula").innerHTML =
+`每股价值 = [ Σ FCF₀×(1+g)ᵗ÷(1+r)ᵗ + 终值现值 + 净现金 ] ÷ 股本
+FCF₀=<span class="hl">${fmt0(S.fcf0)}</span>  g=<span class="hl">${S.g}%</span>  r=<span class="hl">${S.r}%</span>  N=<span class="hl">${S.years}</span>  永续=<span class="hl">${S.gt}%</span>`;
+    let html=`<tr><th>年</th><th>FCF = ${fmt0(S.fcf0)}×${(1+S.g/100).toFixed(2)}ᵗ</th><th>÷(1+${(S.r/100).toFixed(3)})ᵗ</th><th>现值</th></tr>`;
+    D.rows.forEach(x=>{html+=`<tr><td>Y${x.t}</td><td>${fmt0(x.f)}</td><td>${x.d.toFixed(3)}</td><td>${fmt0(x.p)}</td></tr>`;});
+    html+=`<tr class="total"><td>前${S.years}年合计</td><td></td><td></td><td>${fmt0(D.pv)}</td></tr>`;
+    html+=`<tr><td>终值 TV = 末年FCF×(1+永续)÷(r−永续)</td><td>${fmt0(D.rows[D.rows.length-1].f)}×${(1+S.gt/100).toFixed(2)}÷${((S.r-S.gt)/100).toFixed(3)}</td><td></td><td>${fmt0(D.tv)}</td></tr>`;
+    html+=`<tr><td>终值现值 = TV÷(1+r)^${S.years}</td><td></td><td>${Math.pow(1+S.r/100,S.years).toFixed(3)}</td><td>${fmt0(D.pvtv)}</td></tr>`;
+    document.getElementById("dcf-table").innerHTML=html;
+    document.getElementById("tv-pct").textContent=fmt1(D.tvpct)+"%";
+    document.getElementById("tv-explicit").style.width=(100-D.tvpct)+"%";
+    document.getElementById("tv-explicit").textContent="前"+S.years+"年 "+fmt1(100-D.tvpct)+"%";
+    document.getElementById("tv-terminal").style.width=D.tvpct+"%";
+    document.getElementById("tv-terminal").textContent="永续 "+fmt1(D.tvpct)+"%";
+    document.getElementById("r-ev").textContent=fmt0(D.ev)+" 亿";
+    document.getElementById("r-equity").textContent=fmt0(D.ev)+" + "+fmt0(S.netcash)+" = "+fmt0(D.eq)+" 亿";
+    document.getElementById("r-pershare").textContent="$"+fmt0(D.ps);
+    document.getElementById("r-pershare-risk").textContent=Dr?("$"+fmt0(Dr.ps)+"（r="+(S.r+1.5).toFixed(1)+"%）"):"—";
+    const discN=(1-S.price/D.ps)*100;
+    let vtxt;
+    if(Dr&&S.price<Dr.ps){
+      vtxt=`本方法结论：每股内在价值 <b>$${fmt0(D.ps)}</b>（风险调整 $${fmt0(Dr.ps)}）。现价 $${S.price} 比风险调整值还低 ${fmt0((1-S.price/Dr.ps)*100)}%，比中性值低 ${fmt0(discN)}%——<b>单看 DCF，安全边际明确</b>。代价是结论依赖 g 与永续假设，见下方敏感性。`;
+    } else if(S.price<D.ps){
+      vtxt=`本方法结论：每股内在价值 <b>$${fmt0(D.ps)}</b>（风险调整 $${fmt0(Dr.ps)}）。现价 $${S.price} 低于中性值 ${fmt0(discN)}%，但高于风险调整值——<b>单看 DCF 偏便宜</b>，便宜程度取决于你是否接受 r=${S.r}% 的假设。`;
+    } else {
+      vtxt=`本方法结论：每股内在价值 <b>$${fmt0(D.ps)}</b>。现价 $${S.price} 高出中性值 ${fmt0((S.price/D.ps-1)*100)}%——<b>单看 DCF，超出部分是为乐观假设付的钱</b>。`;
+    }
+    document.getElementById("dcf-verdict").innerHTML=vtxt;
+  }
+
+  // ===== 方法二：远期PE（独立计算、独立结论） =====
+  const F=fy27eps();
+  document.getElementById("fy27-formula").innerHTML =
+`第①步 FY27E EPS（实际9个月 + 按指引推Q4）:
+Q4净利 = (1300×71.5% − 107 + 2.5)×(1−17%) = <span class="hl">${fmt1(F.q4ni)}</span> → EPS ${F.q4eps.toFixed(2)}
+FY27E EPS = 6.77(实际) + ${F.q4eps.toFixed(2)}(估) = <span class="hl">${F.total.toFixed(2)}</span>`;
+  const ni28=(S.rev28*S.gm28/100-S.opex28+10)*(1-S.tax/100);
+  const eps28=ni28/S.shares28;
+  const lo=eps28*Math.min(S.pelo,S.pehi), hi=eps28*Math.max(S.pelo,S.pehi);
+  document.getElementById("pe-formula").innerHTML =
+`第②步 FY28E 净利 = (营收×毛利率 − opex + 10其他)×(1−税率)
+= (<span class="hl">${fmt0(S.rev28)}</span>×${S.gm28}% − ${fmt0(S.opex28)} + 10)×${(100-S.tax)}% = <span class="hl">${fmt0(ni28)}</span>
+第③步 EPS = ${fmt0(ni28)} ÷ ${S.shares28} = <span class="hl">${eps28.toFixed(2)}</span>
+第④步 合理价格 = EPS × PE下限~上限 = ${eps28.toFixed(2)} × ${Math.min(S.pelo,S.pehi)}~${Math.max(S.pelo,S.pehi)} = <span class="hl">$${fmt0(lo)}–${fmt0(hi)}</span>`;
+  document.getElementById("r-ni28").textContent=fmt0(ni28)+" 亿";
+  document.getElementById("r-eps28").textContent="$"+eps28.toFixed(2);
+  document.getElementById("r-peband").textContent="$"+fmt0(lo)+"–"+fmt0(hi);
+  const pe27=S.price/F.total, pe28=S.price/eps28, growth=(S.rev28/4237-1)*100;
+  document.getElementById("r-implied").textContent=pe27.toFixed(1)+"× / "+pe28.toFixed(1)+"×";
+  document.getElementById("r-peg").textContent=(pe28/growth).toFixed(2)+"（增速"+fmt0(growth)+"%）";
+  const bearLo=eps28*10, bearHi=eps28*15;
+  let ptxt;
+  if(S.price<bearLo){
+    ptxt=`本方法结论：中性区间 <b>$${fmt0(lo)}–${fmt0(hi)}</b>，熊市区间 $${fmt0(bearLo)}–${fmt0(bearHi)}（10–15×）。现价 $${S.price} 比熊市下限还低——<b>单看 PE，市场在给"利润崩塌"定价</b>，若基本面未恶化则是极端便宜。`;
+  } else if(S.price<lo){
+    ptxt=`本方法结论：中性区间 <b>$${fmt0(lo)}–${fmt0(hi)}</b>。现价 $${S.price} 低于中性下限 ${fmt0((1-S.price/lo)*100)}%，落在熊市区间（$${fmt0(bearLo)}–${fmt0(bearHi)}）附近——<b>单看 PE，市场按周期峰值利润打折定价</b>，不信指引也不信共识增速能延续。`;
+  } else if(S.price<=hi){
+    ptxt=`本方法结论：中性区间 <b>$${fmt0(lo)}–${fmt0(hi)}</b>。现价 $${S.price} 落在区间内——<b>单看 PE，价格合理</b>，安全边际有限，属于持有/波段区。`;
+  } else {
+    ptxt=`本方法结论：中性区间 <b>$${fmt0(lo)}–${fmt0(hi)}</b>。现价 $${S.price} 高出上限 ${fmt0((S.price/hi-1)*100)}%——<b>单看 PE，超出部分是市场情绪溢价</b>，对应他的减仓/止赚区。`;
+  }
+  document.getElementById("pe-verdict").innerHTML=ptxt;
+
+  // ===== 可选：交叉验证（只并列，不新算） =====
+  document.getElementById("cross-dcf").textContent=D?("$"+fmt0(Math.min(Dr.ps,D.ps))+"–"+fmt0(Math.max(Dr.ps,D.ps))):"—";
+  document.getElementById("cross-dcf-sub").textContent=D?("g="+S.g+"% · r="+S.r+"% 至 "+(S.r+1.5).toFixed(1)+"%"):"";
+  document.getElementById("cross-pe").textContent="$"+fmt0(lo)+"–"+fmt0(hi);
+  document.getElementById("cross-pe-sub").textContent="FY28E EPS "+eps28.toFixed(2)+" × "+Math.min(S.pelo,S.pehi)+"–"+Math.max(S.pelo,S.pehi)+"倍";
+  if(D){
+    const dcfLo=Math.min(Dr.ps,D.ps), dcfHi=Math.max(Dr.ps,D.ps);
+    const maxV=Math.max(dcfHi,hi,S.price)*1.18;
+    const pct=v=>(v/maxV*100).toFixed(2)+"%";
+    let z=`<div class="track"><span class="tlabel">方法一 · DCF 区间（r 至 r+1.5pct）</span>
+      <div class="bar" style="left:${pct(dcfLo)};width:${((dcfHi-dcfLo)/maxV*100).toFixed(2)}%;background:#2563eb"><span>$${fmt0(dcfLo)}–${fmt0(dcfHi)}</span></div></div>`;
+    z+=`<div class="track"><span class="tlabel">方法二 · 远期PE 区间（熊 10–15× ｜ 中性 PE下限–上限）</span>
+      <div class="bar" style="left:${pct(bearLo)};width:${((bearHi-bearLo)/maxV*100).toFixed(2)}%;background:#94a3b8"><span>熊 $${fmt0(bearLo)}–${fmt0(bearHi)}</span></div>
+      <div class="bar" style="left:${pct(lo)};width:${((hi-lo)/maxV*100).toFixed(2)}%;background:#059669"><span>$${fmt0(lo)}–${fmt0(hi)}</span></div></div>`;
+    z+=`<div class="price-line" style="left:${pct(S.price)}" data-label="现价 $${S.price}"></div>`;
+    z+=`<div class="axis">`+[0,100,200,300,400,500].filter(v=>v<=maxV).map(v=>`<span style="left:${pct(v)}">$${v}</span>`).join("")+`</div>`;
+    document.getElementById("zone-chart").innerHTML=z;
+    const interLo=Math.max(dcfLo,lo), interHi=Math.min(dcfHi,hi);
+    let txt;
+    if(interLo>interHi){
+      txt=`两法区间<b>无交集</b>（DCF $${fmt0(dcfLo)}–${fmt0(dcfHi)} vs PE $${fmt0(lo)}–${fmt0(hi)}）——参数组合不自洽，回前两页检查增速与PE倍数是否匹配（他的原则：单独看任何一个指标都是危险的）。`;
+    } else if(S.price<interLo){
+      txt=`两法都认可的重叠段 <b>$${fmt0(interLo)}–${fmt0(interHi)}</b>，现价 $${S.price} <b>低于重叠段 ${fmt0((1-S.price/interLo)*100)}%</b>。市场定价的不是共识增长，而是"指引落空+周期见顶+治理/出口黑天鹅"。按他的框架：基本面未恶化的情绪性大跌是加仓点，但治理（管理层项）若实质恶化，整个区间要下修。`;
+    } else if(S.price<=interHi){
+      txt=`现价 $${S.price} 落在两法重叠段 <b>$${fmt0(interLo)}–${fmt0(interHi)}</b> 内——价格与价值大致相当，安全边际有限，按他的做法属于"持有/波段"区而非重仓位买入区。`;
+    } else {
+      txt=`现价 $${S.price} <b>高于重叠段上限 ${fmt0((S.price/interHi-1)*100)}%</b>——超出部分按他的定义是"市场情绪推高的溢价"，对应减仓/止赚区（止损重要，止赚更重要）。`;
+    }
+    document.getElementById("conclusion").innerHTML=txt;
+  } else {
+    document.getElementById("zone-chart").innerHTML="";
+    document.getElementById("conclusion").innerHTML="DCF 参数无效，无法交叉验证。";
+  }
+
+  // ===== DCF 敏感性（只属于方法一） =====
+  const gs=[10,15,20,25,30,35,40], rs=[7,8.5,10,11.5,13];
+  let st=`<tr><th>g \\ r</th>`+rs.map(r=>`<th>${r}%</th>`).join("")+`</tr>`;
+  gs.forEach(g=>{
+    st+=`<tr><th>${g}%</th>`;
+    rs.forEach(r=>{
+      const d=dcf(S.fcf0,g,r,S.years,S.gt,S.netcash,S.shares);
+      if(!d){st+=`<td>—</td>`;return;}
+      const ratio=d.ps/S.price;
+      const bg=ratio>=1.5?"#059669":ratio>=1.1?"#a7f3d0":ratio>=0.9?"#fde68a":"#fecaca";
+      const fg=ratio>=1.5?"#fff":"#1c2733";
+      const cur=(g===S.g&&Math.abs(r-S.r)<0.05)?" cur":"";
+      st+=`<td class="${cur}" style="background:${bg};color:${fg}">$${fmt0(d.ps)}</td>`;
+    });
+    st+=`</tr>`;
+  });
+  document.getElementById("sens-table").innerHTML=st;
+}
+buildParams(); render();
+</script>
+</body>
+</html>

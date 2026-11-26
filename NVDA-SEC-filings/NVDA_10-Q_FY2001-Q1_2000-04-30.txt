@@ -1,0 +1,1826 @@
+-----BEGIN PRIVACY-ENHANCED MESSAGE-----
+Proc-Type: 2001,MIC-CLEAR
+Originator-Name: webmaster@www.sec.gov
+Originator-Key-Asymmetric:
+ MFgwCgYEVQgBAQICAf8DSgAwRwJAW2sNKK9AVtBzYZmr6aGjlWyK3XmZv3dTINen
+ TWSM7vrzLADbmYQaionwg5sDW3P6oaM5D3tdezXMm7z1T+B+twIDAQAB
+MIC-Info: RSA-MD5,RSA,
+ VaCZj9Lrmeg4MK9+wqtS0pcKtxfwqTz8XJWwAZDVmjLRfP0W5pmMbTWKVM1h21AE
+ 5DdgvYyXcPpfGyK37zz1qw==
+
+<SEC-DOCUMENT>/in/edgar/work/20000614/0001012870-00-003358/0001012870-00-003358.txt : 20000919
+<SEC-HEADER>0001012870-00-003358.hdr.sgml : 20000919
+ACCESSION NUMBER:		0001012870-00-003358
+CONFORMED SUBMISSION TYPE:	10-Q
+PUBLIC DOCUMENT COUNT:		2
+CONFORMED PERIOD OF REPORT:	20000430
+FILED AS OF DATE:		20000614
+
+FILER:
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			NVIDIA CORP/CA
+		CENTRAL INDEX KEY:			0001045810
+		STANDARD INDUSTRIAL CLASSIFICATION:	 [3674
+]		IRS NUMBER:				943177549
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+</COMPANY-DATA>
+
+		FILING VALUES:
+			FORM TYPE:		10-Q
+			SEC ACT:		
+			SEC FILE NUMBER:	000-23985
+			FILM NUMBER:		654536
+</FILING-VALUES>
+
+			BUSINESS ADDRESS:	
+				STREET 1:		3535 MONROE STREET
+				STREET 2:		415-617-4000
+				CITY:			SANTA CLARA
+				STATE:			CA
+				ZIP:			95051
+				BUSINESS PHONE:		408-615-2500
+</BUSINESS-ADDRESS>
+
+				MAIL ADDRESS:	
+					STREET 1:		3535 MONROE STREET
+					CITY:			SANTA CLARA
+					STATE:			CA
+					ZIP:			95051
+</MAIL-ADDRESS>
+</FILER>
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>10-Q
+<SEQUENCE>1
+<FILENAME>0001.txt
+<DESCRIPTION>QUARTERLY REPORT
+<TEXT>
+
+<PAGE>
+
+- --------------------------------------------------------------------------------
+- --------------------------------------------------------------------------------
+
+                       SECURITIES AND EXCHANGE COMMISSION
+                             Washington, D.C. 20549
+
+                               ----------------
+
+                                   FORM 10-Q
+
+                               ----------------
+
+(Mark One)
+
+  [X]QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES
+     EXCHANGE ACT OF 1934.
+
+                 For the quarterly period ended April 30, 2000
+
+                                       OR
+
+  [_]TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES
+     EXCHANGE ACT OF 1934.
+
+                  For the transition period from      to     .
+
+                        Commission file number: 0-23985
+
+                               NVIDIA CORPORATION
+             (Exact Name of Registrant as Specified in Its Charter)
+
+                Delaware                               94-3177549
+    (State or Other Jurisdiction of                 (I.R.S. Employer
+     Incorporation or Organization)               Identification No.)
+
+                               3535 Monroe Street
+                         Santa Clara, California 95051
+                                 (408) 615-2500
+   (Address, including Zip Code, of Registrant's Principal Executive Offices
+            and Registrant's Telephone Number, including Area Code)
+
+                               ----------------
+
+   Indicate by check mark whether the registrant (1) has filed all reports
+required to be filed by Section 13 or 15(d) of the Securities Exchange Act of
+1934 during the preceding 12 months (or for such shorter period that the
+registrant was required to file such reports) and (2) has been subject to such
+filing requirements for the past 90 days. Yes [X] No [_]
+
+   The number of shares of the registrant's common stock outstanding as of June
+5, 2000 was 32,221,953 shares.
+
+- --------------------------------------------------------------------------------
+- --------------------------------------------------------------------------------
+<PAGE>
+
+                               NVIDIA CORPORATION
+
+                               TABLE OF CONTENTS
+                         PART I: FINANCIAL INFORMATION
+
+<TABLE>
+<CAPTION>
+                                                                           Page
+                                                                           ----
+ <C>     <S>                                                               <C>
+ Item 1. Condensed Financial Statements (unaudited)
+
+         Condensed Balance Sheets as of April 30, 2000 and January 30,
+         2000...........................................................     3
+
+         Condensed Statements of Income for the three months ended April
+         30, 2000 and May 2, 1999.......................................     4
+
+         Condensed Statements of Cash Flows for the three months ended
+         April 30, 2000 and May 2, 1999.................................     5
+
+         Notes to Condensed Financial Statements........................     6
+
+         Management's Discussion and Analysis of Financial Condition and
+ Item 2. Results of Operations..........................................     9
+
+ Item 3. Quantitative and Qualitative Disclosures About Market Risk.....    14
+
+                            PART II: OTHER INFORMATION
+
+ Item 1. Legal Proceedings..............................................    25
+
+ Item 2. Changes in Securities and Use of Proceeds......................    25
+
+ Item 6. Exhibits and Reports on Form 8-K...............................    25
+
+ Signature...............................................................   26
+</TABLE>
+
+                                       2
+<PAGE>
+
+PART I: FINANCIAL INFORMATION
+
+Item 1. Condensed Financial Statements (unaudited)
+
+                               NVIDIA CORPORATION
+
+                            CONDENSED BALANCE SHEETS
+
+<TABLE>
+<CAPTION>
+                                                           April
+                                                            30,     January 30,
+                                                            2000       2000
+                                                          --------  -----------
+                                                             (In thousands)
+                                                              (Unaudited)
+<S>                                                       <C>       <C>
+                         ASSETS
+                         ------
+Current assets:
+  Cash and cash equivalents.............................. $269,800   $ 61,560
+  Accounts receivable, less allowances of $8,246 at April
+   30, 2000 and $6,443 at January 30, 2000...............   71,998     67,224
+  Inventory..............................................   55,241     37,631
+  Prepaid expenses and other current assets..............   16,187      6,760
+                                                          --------   --------
+    Total current assets.................................  413,226    173,175
+Property and equipment, net..............................   30,443     25,886
+Deposits and other assets................................    4,122      3,189
+                                                          --------   --------
+                                                          $447,791   $202,250
+                                                          ========   ========
+          LIABILITIES AND STOCKHOLDERS' EQUITY
+          ------------------------------------
+Current liabilities:
+  Accounts payable....................................... $ 68,527   $ 64,910
+  Accrued liabilities....................................   14,321      9,529
+  Current portion of capital lease obligations...........    1,550      1,786
+                                                          --------   --------
+    Total current liabilities............................   84,398     76,225
+Capital lease obligations, less current portion..........      697        962
+Deferred revenue.........................................  200,000        --
+Long-term payable........................................      250        500
+Stockholders' equity:
+  Common stock...........................................       32         31
+  Additional paid-in capital.............................  115,506     95,964
+  Deferred compensation..................................      (65)      (118)
+  Retained earnings......................................   46,973     28,686
+                                                          --------   --------
+    Total stockholders' equity...........................  162,446    124,563
+                                                          --------   --------
+                                                          $447,791   $202,250
+                                                          ========   ========
+</TABLE>
+
+           See accompanying notes to condensed financial statements.
+
+                                       3
+<PAGE>
+
+                               NVIDIA CORPORATION
+
+                         CONDENSED STATEMENTS OF INCOME
+
+<TABLE>
+<CAPTION>
+                                                Three Months Ended
+                                       ---------------------------------------
+                                         April 30, 2000        May 2, 1999
+                                       -------------------- ------------------
+                                       (In thousands, except per share data)
+                                                    (Unaudited)
+<S>                                    <C>                  <C>
+Revenue............................... $           148,483  $           71,018
+Cost of revenue.......................              92,975              45,946
+                                       -------------------  ------------------
+Gross profit..........................              55,508              25,072
+                                       -------------------  ------------------
+Operating expenses:
+  Research and development............              17,830               8,785
+  Sales, general and administrative...              12,114               7,284
+                                       -------------------  ------------------
+    Total operating expenses..........              29,944              16,069
+                                       -------------------  ------------------
+Operating income......................              25,564               9,003
+Interest and other income, net........               1,328                 342
+                                       -------------------  ------------------
+Income before income tax expense......              26,892               9,345
+Income tax expense....................               8,605               3,084
+                                       -------------------  ------------------
+Net income............................ $            18,287  $            6,261
+                                       ===================  ==================
+Basic net income per share............ $              0.58  $             0.21
+                                       ===================  ==================
+Diluted net income per share.......... $              0.47  $             0.18
+                                       ===================  ==================
+Shares used in basic per share
+ computation..........................              31,680              29,277
+Shares used in diluted per share
+ computation..........................              38,889              35,454
+</TABLE>
+
+
+           See accompanying notes to condensed financial statements.
+
+                                       4
+<PAGE>
+
+                               NVIDIA CORPORATION
+
+                       CONDENSED STATEMENTS OF CASH FLOWS
+
+<TABLE>
+<CAPTION>
+                                                          Three Months Ended
+                                                          --------------------
+                                                          April 30,   May 2,
+                                                            2000       1999
+                                                          ---------- ---------
+                                                            (In thousands)
+                                                              (Unaudited)
+<S>                                                       <C>        <C>
+Cash flows from operating activities:
+  Net income............................................  $  18,287  $   6,261
+Adjustments to reconcile net income to net cash provided
+ by operating activities:
+  Depreciation and amortization.........................      3,048      1,458
+  Amortization of deferred compensation.................         53        259
+  Tax benefit from employee stock plans.................     13,977         43
+  Changes in operating assets and liabilities:
+    Accounts receivable.................................     (4,774)   (13,566)
+    Inventory...........................................     17,610     13,430
+    Prepaid expenses and other current assets...........     (9,427)      (561)
+    Deposit and other current assets....................     (1,087)       (20)
+    Accounts payable....................................      3,367     (8,221)
+    Accrued liabilities.................................      4,792      4,277
+                                                          ---------  ---------
+Net cash provided by operating activities...............     10,626      3,360
+                                                          ---------  ---------
+Cash flows used in investing activities:
+  Purchase of property and equipment....................     (7,451)    (2,483)
+                                                          ---------  ---------
+Cash flows from financing activities:
+  Payments under line of credit.........................        --      (5,000)
+  Common stock issued under employee stock plans........      5,566        120
+  Advance in connection with Microsoft agreement........    200,000        --
+  Sale of common stock under public offering, net of
+   issuance costs.......................................        --       5,810
+  Payments under capital leases.........................       (501)      (241)
+                                                          ---------  ---------
+Net cash provided by financing activities...............    205,065        689
+                                                          ---------  ---------
+Change in cash and cash equivalents.....................    208,240      1,566
+Cash and cash equivalents at beginning of period........     61,560     50,257
+                                                          ---------  ---------
+Cash and cash equivalents at end of period..............  $ 269,800  $  51,823
+                                                          =========  =========
+Cash paid for interest..................................  $      51  $      77
+                                                          =========  =========
+Cash paid for taxes.....................................  $      71  $     834
+                                                          =========  =========
+Noncash financing and investing activities:
+  Assets recorded under capital lease...................  $     --   $      16
+                                                          =========  =========
+  Liabilities assumed in connection with long-term
+   software license.....................................  $     --   $  10,000
+                                                          =========  =========
+</TABLE>
+
+           See accompanying notes to condensed financial statements.
+
+                                       5
+<PAGE>
+
+                               NVIDIA CORPORATION
+
+                    NOTES TO CONDENSED FINANCIAL STATEMENTS
+                                  (Unaudited)
+                                 (In thousands)
+
+1. Basis of presentation
+
+   The accompanying condensed unaudited financial statements have been prepared
+in accordance with generally accepted accounting principles for interim
+financial information and with the instructions to Form 10-Q and Article 10 of
+Regulation S-X. Accordingly, they do not include all of the information and
+notes required by generally accepted accounting principles for annual financial
+statements. In the opinion of management, all adjustments, consisting only of
+normal recurring adjustments, considered necessary for a fair presentation have
+been included. The results for the interim periods presented are not
+necessarily indicative of the results that may be expected for any future
+period. The following information should be read in conjunction with the
+financial statements and notes thereto included in the Company's Annual Report
+on Form 10-K for the year ended January 30, 2000.
+
+2. Net income per share
+
+   Basic net income per share is computed using the weighted average number of
+common shares outstanding during the period. Diluted net income per share is
+computed using the weighted average number of common and dilutive common
+equivalent shares outstanding during the period, using either the as-if-
+converted method for convertible preferred stock or the treasury stock method
+for options and warrants.
+
+<TABLE>
+<CAPTION>
+                                                                Three Months
+                                                                   Ended
+                                                              ----------------
+                                                              April 30, May 2,
+                                                                2000     1999
+                                                              --------- ------
+   <S>                                                        <C>       <C>
+   Denominator:
+     Denominator for basic net income per share--weighted-
+      average shares.........................................  31,680   29,277
+     Effect of dilutive securities:
+       Stock options outstanding.............................   7,209    6,035
+       Warrants..............................................     --       142
+                                                               ------   ------
+     Denominator for diluted net income per share............  38,889   35,454
+                                                               ======   ======
+</TABLE>
+
+3. Comprehensive income
+
+   The Company had no other components of comprehensive income other than the
+reported amounts of net income.
+
+4. Inventory
+
+<TABLE>
+<CAPTION>
+                                                              April
+                                                               30,   January 30,
+                                                              2000      2000
+                                                             ------- -----------
+   <S>                                                       <C>     <C>
+   Work in-process.......................................... $ 6,711   $ 6,446
+   Finished goods...........................................  48,530    31,185
+                                                             -------   -------
+     Total inventory........................................ $55,241   $37,631
+                                                             =======   =======
+</TABLE>
+
+   At April 30, 2000, the Company had noncancelable inventory purchase
+commitments totaling $122.3 million.
+
+                                       6
+<PAGE>
+
+                               NVIDIA CORPORATION
+
+              NOTES TO CONDENSED FINANCIAL STATEMENTS--(Continued)
+                                  (Unaudited)
+                                 (In thousands)
+
+
+5. Segment Information
+
+   The Company operates in a single industry segment: the design, development
+and marketing of 3D graphics processors for the entire desktop personal
+computer or PC market, from professional workstations to low-cost PCs. The
+Company's chief operating decision maker, the Chief Executive Officer, reviews
+financial information presented on a consolidated basis for purposes of making
+operating decisions and assessing financial performance. The following table
+summarizes geographic information on net sales:
+
+<TABLE>
+<CAPTION>
+                                                            Three Months Ended
+                                                           ----------------------
+                                                           April 30,
+                                                             2000     May 2, 1999
+                                                           ---------  -----------
+   <S>                                                     <C>        <C>
+   United States.......................................... $ 14,845     $34,827
+   Asia Pacific...........................................  109,885      31,321
+   Europe.................................................   23,753       4,870
+                                                           --------     -------
+     Total revenue........................................  148,483      71,018
+                                                           ========     =======
+
+   Revenue to significant customers, those representing approximately 10% or
+more of total revenue for the respective periods, is summarized as follows:
+
+<CAPTION>
+                                                            Three Months Ended
+                                                           ----------------------
+                                                           April 30,
+                                                             2000     May 2, 1999
+                                                           ---------  -----------
+   <S>                                                     <C>        <C>
+   Sales
+     Customer A...........................................      --          13%
+     Customer B...........................................      --          27%
+     Customer C...........................................       12%        20%
+     Customer D...........................................      --          10%
+     Customer E...........................................       23%        10%
+     Customer F...........................................       11%         9%
+<CAPTION>
+                                                                   As of
+                                                           ----------------------
+                                                           April 30,  January 30,
+                                                             2000        2000
+                                                           ---------  -----------
+   <S>                                                     <C>        <C>
+   Accounts receivable
+     Customer C...........................................      18%         15%
+     Customer E...........................................      22%         12%
+     Customer G...........................................      16%         13%
+</TABLE>
+
+6. Long-term Software Licensing Agreement
+
+   On April 12, 1999, the Company entered into a $10.0 million five-year
+software licensing agreement with a supplier in the electronic design
+automation industry. Under this agreement, the $10.0 million is due in two
+installments. The first installment was settled in June 1999 for 243,902 shares
+of the Company's common stock valued at $5.0 million. The second installment
+was settled in cash on March 31, 2000.
+
+                                       7
+<PAGE>
+
+                               NVIDIA CORPORATION
+
+              NOTES TO CONDENSED FINANCIAL STATEMENTS--(Continued)
+                                  (Unaudited)
+                                 (In thousands)
+
+
+7. Microsoft Agreement
+
+   On March 5, 2000, the Company entered into an agreement with Microsoft
+pursuant to which the Company agreed to develop and sell graphics chips and to
+license certain technology to Microsoft and its licensees for use in a product
+under development by Microsoft. In April 2000, Microsoft paid the Company $200
+million as an advance against graphics chip purchases. Microsoft may terminate
+the agreement at any time. If termination occurs prior to offset in full of the
+advance payments, the Company would be required to return to Microsoft up to
+$100 million of the prepayment and to convert the remainder into preferred
+stock of the Company at a 30% premium to the 30-day average trading price of
+its common stock immediately preceding Microsoft's termination of the
+agreement. In addition, in the event that an individual or corporation makes an
+offer to purchase shares equal or greater than thirty percent (30%) of the
+outstanding shares of the Company's common stock, Microsoft has first and last
+rights of refusal to purchase the stock. The graphics chip contemplated by the
+agreement is highly complex, and the development and release of the Microsoft
+product and its commercial success are dependent upon a number of factors, many
+of which the Company cannot control. The Company cannot guarantee that it will
+be successful in developing the graphics chip for use by Microsoft or that the
+product will be developed or released, or if released, will be commercially
+successful.
+
+8. Subsequent Events
+
+   In May 2000, the Company's Board of Directors approved a two-for-one stock
+split of the Company's common stock, to be effected in the form of a 100% stock
+dividend. The stock split will entitle each stockholder of record at the close
+of business on June 12, 2000 to receive one additional share for every
+outstanding share of common stock held. The transfer agent for the Company
+expects to deliver the additional shares resulting from the stock split on or
+about June 26, 2000. Upon completion of the stock split, the Company will have
+approximately 64 million shares of common stock outstanding.
+
+                                       8
+<PAGE>
+
+Item 2: Management's Discussion and Analysis of Financial Condition and Results
+of Operations
+
+   The following discussion contains forward-looking statements within the
+meaning of Section 27A of the Securities Act of 1933 and Section 21E of the
+Securities Exchange Act of 1934, which are subject to the "safe harbor" created
+by those sections. These forward-looking statements include but are not limited
+to: statements related to industry trends and future growth in the markets for
+3D graphics processors; our product development efforts; the timing of our
+introduction of new products; industry and consumer acceptance of our products;
+and future profitability. These forward-looking statements involve risks and
+uncertainties that could cause our actual results to differ materially from
+those in the forward-looking statements. We undertake no obligation to publicly
+release any revisions to the forward-looking statements or reflect events or
+circumstances after the date of this document. The "Certain Business Risks"
+section, among other things, should be considered in evaluating our prospects
+and future financial performance.
+
+Overview
+
+   We design, develop and market a "top-to-bottom" family of award-winning 3D
+graphics processors, graphics processing units or GPUs and related software
+that set the standard for performance, quality and features for every type of
+desktop PC user, from professional workstations to low-cost PCs. In the first
+quarter of fiscal 2000, we began commercial shipment of the RIVA TNT2 family of
+graphics processors. During the third quarter of fiscal 2000, we launched the
+NVIDIA GeForce 256 and NVIDIA Quadro, the industry's first GPUs, which are the
+first products to incorporate transform and lighting into a single chip. In the
+first quarter of fiscal 2001, we introduced the GeForce2 GTS, the first per-
+pixel shading GPU intended to achieve cinematic-quality real-time graphics for
+the desktop PC market. The GeForce 256, Quadro and GeForce2 GTS GPUs provide
+the capability for content developers to build a new generation of e-commerce,
+e-business, education and entertainment applications. We expect that a
+significant portion of our revenue for the foreseeable future will be derived
+from the sale of our 3D graphics processors in the PC market. We recognize
+product sales revenue upon shipment, net of appropriate allowances. Our policy
+on sales to distributors is to defer recognition of sales and related gross
+profit until the distributors resell the product. Royalty revenue is generally
+recognized upon shipment of product to the licensee's customers. Currently, all
+of our product sales and our arrangements with third-party manufacturers
+provide for pricing and payment in U.S. dollars. We have not engaged in any
+foreign currency hedging activities, although we may do so in the future. Since
+we have no other product line, our business would suffer if for any reason our
+graphics processors do not achieve widespread acceptance in the PC market.
+
+   A majority of our sales have been to a limited number of customers and sales
+are highly concentrated. We sell graphics processors to add-in board and
+motherboard manufacturers, primarily ASUSTeK Computer Inc., Canopus
+Corporation, Creative Technology Ltd., ELSA AG, and Guillemot Corporation and
+contract electronics manufacturers or CEMs, including Celestica Hong Kong Ltd.,
+Intel Corporation, Mitac International Corporation, Micro-Star International
+Co., Ltd., or MSI, SCI Systems, Inc., and VisionTek, Inc.. These manufacturers
+incorporate our processors in the boards they sell to PC original equipment
+manufacturers or OEMs, retail outlets and systems integrators. The average
+selling prices for our products, as well as our customers' products, vary by
+distribution channel. Our three largest customers accounted for approximately
+46% of revenues for the first quarter of fiscal 2001. Sales to Edom Technology
+Co., Ltd., an Asian distributor, accounted for 23%, sales to Creative accounted
+for 12%, and sales to ASUSTeK accounted for 11% of our total revenue for the
+first quarter of fiscal 2001. Sales to Diamond Multimedia Systems, Inc.
+accounted for 27%, sales to Creative accounted for 20%, sales to STB Systems,
+Inc. accounted for 13%, sales to Intel accounted for 10% and sales to Edom
+accounted for 10% of our total revenue for the first quarter of fiscal 2000.
+The number of potential customers for our products is limited, and we expect
+sales to be concentrated to a few major customers for the foreseeable future.
+In October 1999, S3 Incorporated, a supplier of graphics processors and a
+competitor, completed the acquisition of Diamond. Following the acquisition,
+our sales to Diamond declined significantly to less than 1% of total revenue in
+the first quarter of fiscal 2001 from 26% of total revenue in the first quarter
+of fiscal 2000. Diamond is no longer one of our significant customers. 3Dfx
+Interactive, Inc., a 3D graphics company and a competitor, completed the
+acquisition of STB in May
+
+                                       9
+<PAGE>
+
+1999. Sales to STB declined significantly from prior levels following the
+merger and our relationship terminated in the fourth quarter of fiscal 2000.
+The loss of business from Diamond and STB has not had a material impact on our
+revenues and profitability to date.
+
+   As markets for our 3D graphics processors develop and competition increases,
+we anticipate that product life cycles in the high end will remain short and
+average selling prices will continue to decline. In particular, average selling
+prices and gross margins are expected to decline as each product matures. Our
+add-in board manufacturers and major OEM customers typically introduce new
+system configurations as often as twice per year for the high end, typically
+based on spring and fall design cycles. Accordingly, our existing products must
+have competitive performance levels in order to be included in new system
+configurations, or we must timely introduce new products with such performance
+characteristics at costs and in sufficient volumes to maintain overall average
+selling prices and gross margins. Failure to achieve necessary costs and volume
+shipments with respect to future products or product enhancements could result
+in rapidly declining average selling prices, reduced margins, reduced demand
+for products or loss of market share.
+
+   We currently utilize Taiwan Semiconductor Manufacturing Company, or TSMC,
+our primary manufacturer, and WaferTech LLC (a joint venture controlled by
+TSMC) to produce semiconductor wafers, and utilize independent contractors to
+perform assembly, test and packaging. We depend on these suppliers to allocate
+to us a portion of their manufacturing capacity sufficient to meet our needs,
+to produce products of acceptable quality and at acceptable manufacturing
+yields, and to deliver those products to us on a timely basis. These
+manufacturers may not always be able to meet our near-term or long-term
+manufacturing requirements. Yields or product performance could suffer due to
+difficulties associated with adapting our technology and product design to the
+proprietary process technology and design rules of a new manufacturer. The
+level of finished goods inventory we maintain may fluctuate and therefore a
+manufacturing disruption experienced by these manufacturers would impact the
+production of our products, which could harm our business. In addition, as the
+complexity of our products and the accompanying manufacturing process
+increases, there is an increasing risk that we will experience problems with
+the performance of new products and that there will be yield problems or other
+delays in the development or introduction of these products.
+
+   Substantially all of our sales are made on the basis of purchase orders
+rather than long-term agreements. As a result, we may commit resources to the
+production of products without having received advance purchase commitments
+from customers. Any inability to sell products to which we have devoted
+significant resources could harm our business. In addition, cancellation or
+deferral of product orders could result in our holding excess inventory, which
+could adversely affect our profit margins and restrict our ability to fund
+operations. Product returns or delays or difficulties in collecting accounts
+receivable could result in significant charges against income, which could harm
+our business.
+
+                                       10
+<PAGE>
+
+Results of Operations
+
+   The following table sets forth, for the periods indicated, certain items in
+our statements of operations expressed as a percentage of total revenue.
+
+<TABLE>
+<CAPTION>
+                                                        Three Months Ended
+                                                        ----------------------
+                                                        April 30,    May 2,
+                                                           2000       1999
+                                                        ----------   ---------
+<S>                                                     <C>          <C>
+Revenue................................................       100.0%     100.0%
+Cost of revenue........................................        62.6       64.7
+                                                          ---------  ---------
+Gross profit...........................................        37.4       35.3
+Operating expenses:
+  Research and development.............................        12.0       12.4
+  Sales, general and administrative....................         8.2       10.2
+                                                          ---------  ---------
+    Total operating expenses...........................        20.2       22.6
+                                                          ---------  ---------
+    Operating income...................................        17.2       12.7
+Interest and other income, net.........................         0.9        0.4
+                                                          ---------  ---------
+Income before income tax expense.......................        18.1       13.1
+Income tax expense.....................................         5.8        4.3
+                                                          ---------  ---------
+    Net income.........................................        12.3%       8.8%
+                                                          =========  =========
+</TABLE>
+
+Three Months Ended April 30, 2000 and May 2, 1999
+
+ Revenue
+
+   Revenue increased 109% to $148.5 million in the three months ended April 30,
+2000 from $71.0 million in the three months ended May 2, 1999. The growth was
+primarily the result of increased sales of our graphics processors and the
+strong demand for new products at higher unit average selling prices. Revenue
+derived from the bundling of double data rate memories with a portion of our
+new GeForce 256 GPU totaled $19.4 million in the first quarter of fiscal 2001.
+Revenue from sales outside of the United States accounted for 90% of total
+revenue for the first quarter of fiscal 2001 and 51% of total revenue for the
+first quarter of fiscal 2000. Our international revenue increased 269% to
+$133.6 million for the quarter from $36.2 million a year ago. This increase in
+revenue from sales outside of the United States is primarily attributable to
+(i) expanded use of CEMs and add-in board manufacturers located outside of the
+United States, and (ii) increased demand for our products in the Asia Pacific
+and European regions. Revenue by geographical region is allocated to individual
+countries based on the location to which the products are initially shipped.
+The portion of revenue derived from foreign CEMs and add-in board manufacturers
+attributable to end customers in the U.S. is not separately disclosed. Although
+we achieved substantial growth in product revenue from the first quarter of
+fiscal 2000 to the same period in fiscal 2001, we do not expect to sustain this
+rate of growth in future periods. In addition, we expect that the average
+selling prices of our products will decline over the lives of the products. The
+declines in average selling prices of 3D graphics processors generally may also
+accelerate as the market develops and competition increases.
+
+ Gross Profit
+
+   Gross profit consists of total revenue net of allowances less cost of
+revenue. Cost of revenue consists primarily of the costs of semiconductors
+purchased from contract manufacturers (including assembly, test and packaging),
+manufacturing support costs (labor and overhead associated with such
+purchases), inventory provisions and shipping costs. Our gross profit margin in
+any period varies depending on the mix of types of graphics processors sold.
+Gross profit increased 121% from the first quarter of fiscal 2000 to the same
+period of fiscal 2001, primarily due to significant increases in unit shipments
+and the favorable impact of the higher margin GeForce 256 and GeForce2 GTS
+graphics processing units, partially offset by declining profit margins
+
+                                       11
+<PAGE>
+
+in our previous generation products. We began the bundling of double data rate
+memories with our GeForce processors in the second half of fiscal 2000. The
+inclusion of the double date rate memories has reduced the gross margin
+percentage but has no incremental impact on absolute margin dollars, as they
+are sold at cost. We expect to continue bundling double date rate memories with
+some of our high-performance products for at least the next six months.
+Although we achieved substantial growth in gross profit and gross profit margin
+from the first quarter of fiscal 2000 to the same period of fiscal 2001, we do
+not expect to sustain these rates of growth in future periods.
+
+ Operating Expenses
+
+   Research and Development. Research and development expenses consist of
+salaries and benefits, cost of development tools and software, costs of
+prototypes of new products and consultant costs. Research and development
+expenses increased by 103% from the first quarter of fiscal 2000 to the same
+period of fiscal 2001, primarily due to additional personnel and related
+engineering costs to support development of our next generation products, such
+as depreciation charges incurred on capital expenditures and software license
+and maintenance fees. We anticipate that we will continue to devote substantial
+resources to research and development, and we expect these expenses to increase
+in absolute dollars in the foreseeable future due to increased complexity and
+the number of products under development. Research and development expenses are
+likely to fluctuate from time to time to the extent we make periodic
+incremental investments in research and development and our level of revenue
+fluctuates.
+
+   Sales, General and Administrative. Sales, general and administrative
+expenses consist primarily of salaries, commissions and bonuses, promotional
+and advertising expenses, travel and entertainment expenses and legal and
+accounting expenses. Sales, general and administrative expenses increased 66%
+from the first quarter of fiscal 2000 to the same period of fiscal 2001,
+primarily due to costs associated with additional personnel, commissions and
+bonuses on sales of the RIVA TNT2 and GeForce 256 graphics processors, and
+increased promotional expenses associated with GeForce2 GTS product launch and
+trade show expenses. We expect sales and marketing expenses to continue to
+increase in absolute dollars as we expand sales and marketing efforts and
+increase promotional activities. While we expect sales, general and
+administrative expenses to continue to increase in absolute dollars as we
+expand our operations, we do not expect significant changes in these expenses
+as a percentage of revenue in future periods.
+
+ Interest and Other Income, Net
+
+   Interest income primarily consists of interest earned on cash and cash
+equivalents. Interest expense primarily consists of interest incurred as a
+result of capital lease obligations. Interest expense increased slightly by
+$86,000. Interest and other income increased $897,000 from the first quarter of
+fiscal 2000 to the same period of fiscal 2001, due to higher average cash
+balances as a result of a $200 million advance received from Microsoft in
+connection with our development agreement with Microsoft.
+
+ Income Taxes
+
+   We had an effective tax rate of 32% in the first quarter of fiscal 2000 and
+the same period of fiscal 2001. We anticipate our income tax rates for fiscal
+2001 will be relatively constant, depending on the income tax attributable to
+foreign operations and availability of research and experimentation credits.
+
+ Stock-Based Compensation
+
+   With respect to stock options granted to employees, we recorded deferred
+compensation of $4.3 million in 1997 and $361,000 in the one month ended
+January 31, 1998. These amounts are being amortized over the vesting period of
+the individual options, generally four years. We amortized approximately
+$259,000 in the first quarter of fiscal 2000 and $53,000 in the first quarter
+of fiscal 2001. We anticipate total amortization of approximately $113,000 in
+fiscal 2001.
+
+                                       12
+<PAGE>
+
+Liquidity and Capital Resources
+
+   As of April 30, 2000, we had $269.8 million in cash and cash equivalents, an
+increase of $208.2 million from the end of fiscal 2000. We historically have
+held our cash balances in cash equivalents such as money market funds or as
+cash. We place the money market funds with high-quality financial institutions
+and limit the amount of exposure with any one financial institution. We had
+$122.3 million of noncancelable manufacturing commitments outstanding at April
+30, 2000.
+
+   In July 1999, we entered into an amended loan and security agreement with a
+bank, which included a $10.0 million revolving loan agreement with a borrowing
+base equal to 80% of eligible accounts. Borrowings under the line of credit
+bear interest at the prime rate and are due in July 2000. Covenants governing
+the loan agreement require the maintenance of certain financial ratios. As of
+April 30, 2000, we had no outstanding borrowings against the line of credit.
+
+   Operating activities generated cash of $10.6 million during the first
+quarter of fiscal 2001 and $3.4 million during the first quarter of fiscal
+2000. The increase from the first quarter of fiscal 2000 to the same period of
+fiscal 2001 was due to a substantial increase in net income, offset by changes
+in operating assets and liabilities. Our accounts receivable are highly
+concentrated. As of April 30, 2000,our three largest customers accounted for
+approximately 56% of our accounts receivable. Although we have not experienced
+any significant bad debt write-offs to date, we may be required to write off
+bad debt in the future, which could harm our business.
+
+   To date, our investing activities have consisted primarily of purchases of
+property and equipment. Our capital expenditures, including capital leases,
+decreased from $12.5 million in the first quarter of fiscal 2000 to $7.5
+million in the first quarter of fiscal 2001. The decrease was primarily
+attributable to a $10.0 million obligation in the first quarter of fiscal 2000
+pursuant to a long-term licensing agreement with an electronic design
+automation supplier, offset by additional purchases of computer and emulation
+equipment, to support increased research and development activities in the
+first quarter of fiscal 2001. We expect capital expenditures to increase as we
+further expand research and development initiatives and as our employee base
+grows. The timing and amount of future capital expenditures will depend
+primarily on our future growth. We expect to spend approximately $30.0 million
+for capital expenditures in fiscal 2001, primarily for software licenses,
+emulation equipment, purchase of computer and engineering workstations,
+enterprise resource planning system implementation and tenant improvements in
+our new headquarter facility.
+
+   In April 2000, we entered into leases for our new headquarters complex in
+Santa Clara, California. Our new complex will comprise four buildings,
+representing approximately 500,000 total square feet. We expect the first phase
+of two buildings consisting of approximately 250,000 square feet to be
+completed in June 2001, the second phase of one building consisting of
+approximately 125,000 square feet to be completed in July 2001 and the last
+phase to be completed in March 2002. The leases expire in 2012 and include two
+seven-year renewals at our option. Future minimum lease payments under these
+operating leases total approximately $240 million over the terms of the leases.
+
+   Financing activities provided cash of $205.1 million in the first quarter of
+fiscal 2001, compared to $689,000 in the first quarter of fiscal 2000. On March
+5, 2000, we entered into an agreement with Microsoft in which we agreed to
+develop and sell graphics chips and to license certain technology to Microsoft
+and its licensees for use in a product under development by Microsoft. In April
+2000, Microsoft paid us $200 million as an advance against graphics chip
+purchases. Microsoft may terminate the agreement at any time. If termination
+occurs prior to offset in full of the advance payments, we would be required to
+return to Microsoft up to $100 million of the prepayment and to convert the
+remainder into shares of our preferred stock at a 30% premium to the 30-day
+average trading price of our common stock immediately preceding the
+termination.
+
+   We believe that our existing cash balances, anticipated cash flows from
+operations and existing credit facilities, will be sufficient to meet our
+operating and capital requirements for at least the next 12 months. However, we
+may need to raise additional equity or debt financing within this time frame.
+Additional financing
+
+                                       13
+<PAGE>
+
+may not be available on favorable terms or at all and may be dilutive to our
+then-current stockholders. We also may require additional capital for other
+purposes not presently contemplated. If we are unable to obtain sufficient
+capital, we could be required to curtail capital equipment purchases or
+research and development expenditures, which could harm our business.
+
+Year 2000 Compliance
+
+   The Year 2000 issue is the result of computer programs written using two
+digits rather than four to define the applicable year. Computer programs that
+have date-sensitive software like this may recognize a date using "00" as the
+year 1900 rather than the year 2000. Although we have not experienced any
+significant Year 2000 problems to date, there remains the possibility that such
+problems may arise.
+
+Item 3. Quantitative and Qualitative Disclosures about Market Risk
+
+Interest Rate Risk
+
+   The primary objective of our investment activities is to preserve principal
+while at the same time maximizing the income we receive from the investments
+without significantly increasing risk. To minimize potential loss arising from
+adverse changes in interest rates, we maintain a portfolio of cash and cash
+equivalents primarily in highly rated domestic money market funds. In general,
+money market funds are not subject to market risk because the interest paid on
+such funds fluctuates with the prevailing interest rate.
+
+Exchange Rate Risk
+
+   We consider our exposure to foreign exchange rate fluctuations to be
+minimal. Currently, all of our arrangements with third-party manufacturers
+provide for pricing and payment in U.S. dollars, and therefore are not subject
+to exchange rate fluctuations. To date, we have not engaged in any currency
+hedging activities, although we may do so in the future. Fluctuations in
+foreign currency exchange rates could harm our business in the future.
+
+Certain Business Risks
+
+   In addition to the risks discussed in "Management's Discussion and Analysis
+of Financial Condition and Results of Operations," our business is subject to
+the risks set forth below.
+
+ Our operating results are unpredictable and may fluctuate.
+
+   Many of our revenue components fluctuate and are difficult to predict, and
+our operating expenses are largely independent of revenue in any particular
+period. It is therefore difficult for us to accurately forecast revenue and
+profits or losses. We believe that our quarterly and annual results of
+operations will be affected by a variety of factors that could adversely affect
+our revenue, gross profit and results of operations.
+
+   Factors that have affected our results of operations in the past, and are
+likely to affect our results of operations in the future, include the
+following:
+
+  . demand and market acceptance for our products and/or customers' products;
+
+  . the successful development and volume production of next-generation
+    products;
+
+  . new product announcements or product introductions by our competitors;
+
+  . our ability to introduce new products in accordance with OEM design
+    requirements and design cycles;
+
+  . changes in the timing of product orders due to unexpected delays in the
+    introduction of products of our customers' products;
+
+
+                                       14
+<PAGE>
+
+  . fluctuations in the availability of manufacturing capacity or
+    manufacturing yields;
+
+  . competitive pressures resulting in lower than expected average selling
+    prices;
+
+  . rates of return in excess of that forecasted or expected due to quality
+    issues;
+
+  . the rescheduling or cancellation of customer orders;
+
+  . the loss of a key customer or the termination of a strategic
+    relationship;
+
+  . seasonal fluctuations associated with the PC market;
+
+  . substantial disruption in our suppliers' operations, either as a result
+    of a natural disaster, equipment failure or other cause;
+
+  . supply constraints for and the changes in the cost of the other
+    components incorporated into our customers' products, including memory
+    devices;
+
+  . our ability to reduce the manufacturing costs of our products;
+
+  . legal and other costs related to defending intellectual property;
+
+  . unexpected inventory write-downs; and
+
+  . introduction of enabling technologies to keep pace with faster
+    generations of processors and controllers.
+
+   Any one or more of the factors discussed above could prevent us from
+achieving our expected future revenue or net income.
+
+   Because most operating expenses are relatively fixed in the short term, we
+may be unable to adjust spending sufficiently in a timely manner to compensate
+for any unexpected sales shortfall. We may be required to reduce prices in
+response to competition or to pursue new market opportunities. If new
+competitors, technological advances by existing competitors or other
+competitive factors require us to invest significantly greater resources than
+anticipated in research and development or sales and marketing efforts, our
+business could suffer. Accordingly, we believe that period-to-period
+comparisons of our results of operations should not be relied upon as an
+indication of our future performance. In addition, the results of any quarterly
+period are not indicative of results to be expected for a full fiscal year.
+
+ Our 3D graphics solution may not continue to be accepted by the PC market.
+
+   Our success will depend in part upon continued broad adoption of our 3D
+graphics processors for high performance 3D graphics in PC applications. The
+market for 3D graphics processors has been characterized by unpredictable and
+sometimes rapid shifts in the popularity of products, often caused by the
+publication of competitive industry benchmark results, changes in dynamic
+random memory devices pricing and other changes in the total system cost of
+add-in boards, as well as by severe price competition and by frequent new
+technology and product introductions. Only a small number of products have
+achieved broad market acceptance and such market acceptance, if achieved, is
+difficult to sustain due to intense competition. Since we have no other product
+line, our business would suffer if for any reason our current or future 3D
+graphics processors do not continue to achieve widespread acceptance in the PC
+market. If we are unable to complete the timely development of or successfully
+and cost-effectively manufacture and deliver products that meet the
+requirements of the PC market, our business would be harmed.
+
+ Our integrated graphics product may not be accepted by the PC market.
+
+   We expect that integrated graphics chipset products will become an
+increasing part of the lower cost segment of the PC graphics market. We have
+only recently introduced a 3D graphics processor targeted at this segment. If
+this product is not competitive in this segment and the integrated chipset
+segment continues to account for an increasing percentage of the units sold in
+the PC market, our business may suffer.
+
+                                       15
+<PAGE>
+
+ We need to develop new products and to manage product transitions in order to
+ succeed.
+
+   Our business will depend to a significant extent on our ability to
+successfully develop new products for the 3D graphics market. Our add-in board
+manufacturers and major OEM customers typically introduce new system
+configurations as often as twice per year, typically based on spring and fall
+design cycles. Accordingly, our existing products must have competitive
+performance levels or we must timely introduce new products with such
+performance characteristics in order to be included in new system
+configurations. This requires that we do the following:
+
+  . anticipate the features and functionality that consumers will demand;
+
+  . incorporate those features and functionality into products that meet the
+    exacting design requirements of PC OEMs and add-in board manufacturers or
+    CEMs;
+
+  . price our products competitively; and
+
+  . introduce the products to the market within the limited window for PC
+    OEMs and add-in board manufacturers.
+
+   As a result, we believe that significant expenditures for research and
+development will continue to be required in the future. The success of new
+product introductions will depend on several factors, including the following:
+
+  . proper new product definition;
+
+  . timely completion and introduction of new product designs;
+
+  . the ability of TSMC, WaferTech, and any additional third-party
+    manufacturers to effectively manufacture our new products;
+
+  . the quality of any new products;
+
+  . differentiation of new products from those of our competitors; and
+
+  . market acceptance of our and our customers' products.
+
+   Our strategy is to utilize the most advanced semiconductor process
+technology appropriate for our products and available from commercial third-
+party foundries. Use of advanced processes has in the past resulted in initial
+yield problems. New products that we introduce may not incorporate the features
+and functionality demanded by PC OEMs, add-in board manufacturers and consumers
+of 3D graphics. In addition, we may not successfully develop or introduce new
+products in sufficient volumes within the appropriate time to meet both the PC
+OEMs' design cycles and market demand. We have in the past experienced delays
+in the development of some new products. Our failure to successfully develop,
+introduce or achieve market acceptance for new 3D graphics products would harm
+our business.
+
+ Our failure to identify new product opportunities or to develop new products
+ may result in production delays.
+
+   As markets for our 3D graphics processors develop and competition increases,
+we anticipate that product life cycles at the high end will remain short and
+average selling prices will continue to decline. In particular, we expect
+average selling prices and gross margins for our 3D graphics processors to
+decline as each product matures and as unit volumes increase. As a result, we
+will need to introduce new products and enhancements to existing products to
+maintain overall average selling prices and gross margins. In order for our 3D
+graphics processors to achieve high volumes, leading PC OEMs and add-in board
+manufacturers must select our 3D graphics processor for design into their
+products, and then successfully complete the designs of their products and sell
+them. We may be unable to successfully identify new product opportunities or to
+develop and bring to market in a timely fashion any new products. In addition,
+we cannot guarantee that any new products we develop will be selected for
+design into PC OEMs' and add-in board manufacturers' products, that any new
+
+                                       16
+<PAGE>
+
+designs will be successfully completed or that any new products will be sold.
+As the complexity of our products and the manufacturing process for products
+increases, there is an increasing risk that we will experience problems with
+the performance of products and that there will be delays in the development,
+introduction or volume shipment of our products. We may experience difficulties
+related to the production of current or future products or other factors may
+delay the introduction or volume sale of new products we developed. In
+addition, we may be unable to successfully manage the production transition
+risks with respect to future products. Failure to achieve any of the foregoing
+with respect to future products or product enhancements could result in rapidly
+declining average selling prices, reduced margins, and reduced demand for
+products or loss of market share. In addition, technologies developed by others
+may render our 3D graphics products non-competitive or obsolete or result in
+our holding excess inventory, either of which would harm our business.
+
+ We rely on third-party vendors to supply us tools for the development of our
+ new products and we may be unable to obtain the tools necessary to develop
+ these products.
+
+   In the design and development of new products and product enhancements, we
+rely on third-party software development tools. While we currently are not
+dependent on any one vendor for the supply of these tools, some or all of these
+tools may not be readily available in the future. For example, we have
+experienced delays in the introduction of products in the past as a result of
+the inability of then available software development tools to fully simulate
+the complex features and functionalities of our products. The design
+requirements necessary to meet consumer demands for more features and greater
+functionality from 3D graphics products in the future may exceed the
+capabilities of the software development tools available to us. If the software
+development tools we use become unavailable or fail to produce designs that
+meet consumer demands, our business could suffer.
+
+ Our industry is characterized by vigorous protection and pursuit of
+ intellectual property rights or positions that could result in substantial
+ costs to us.
+
+   The semiconductor industry is characterized by vigorous protection and
+pursuit of intellectual property rights or positions, which has resulted in
+protracted and expensive litigation. The 3D graphics market in particular has
+been characterized recently by the aggressive pursuit of intellectual property
+positions, and we expect our competitors to continue to pursue aggressive
+intellectual property positions. In addition, from time to time we receive
+notices alleging that we have infringed patents or other intellectual property
+rights owned by third parties. We expect that, as the number of issued hardware
+and software patents increases, and as competition in our markets intensifies,
+the volume of intellectual property infringement claims will increase. If
+infringement claims are made against us, we may seek licenses under the
+claimant's patents or other intellectual property rights. However, licenses may
+not be offered at all or on terms acceptable to us. The failure to obtain a
+license from a third party for technology used by us could cause us to incur
+substantial liabilities and to suspend the manufacture of products.
+Furthermore, we may initiate claims or litigation against third parties for
+infringement of our proprietary rights or to establish the validity of our
+proprietary rights. We have agreed to indemnify certain customers for claims of
+infringement arising out of sale of our products. Litigation by or against us
+or our customers concerning infringement would likely result in significant
+expense to us and divert the efforts of our technical and management personnel,
+whether or not the litigation results in a favorable determination for us.
+
+ We are subject to a patent infringement lawsuit that could divert our
+ resources and result in the payment of substantial damages.
+
+   On September 21, 1998, 3Dfx filed a patent infringement suit against us in
+the United States District Court for the Northern District of California
+alleging infringement of a 3Dfx patent. On March 2, 1999, 3Dfx added a second
+patent to the suit and on May 24, 1999, 3Dfx added a third patent to the suit.
+The amended complaint alleges that our RIVA TNT, RIVA TNT2 and RIVA TNT2 Ultra
+products infringe the patents in suit and seeks
+
+                                       17
+<PAGE>
+
+unspecified compensatory and trebled damages and attorney's fees. Our current
+generation of products is not identified as infringing any of the patents in
+suit. We have filed an answer and counter-claims asserting that the patents in
+suit are invalid and not infringed. These assertions are supported by our
+investigations to date and an opinion from our patent counsel in this suit. We
+anticipate that the trial date will be set by the District Court after it rules
+on claims construction issues. We have and will continue to defend vigorously
+this suit. The litigation with 3Dfx has resulted, and we expect that the 3Dfx
+litigation will continue to result, in significant legal expenses, whether or
+not the litigation results in a favorable determination for us. In the event of
+an adverse result in the 3Dfx suit, we might be required to do one or more of
+the following:
+
+  . pay substantial damages (including treble damages);
+
+  . permanently cease the manufacture and sale of any of the infringing
+    products;
+
+  . expend significant resources to develop non-infringing products; or
+
+  . obtain a license from 3Dfx for infringing products.
+
+   We have in the past been subject to patent infringement suits with SGI and
+S3 Incorporated, both of which were settled and resulted in cross-licenses and,
+in the case of SGI, payments by us.
+
+ We may be unable to adequately protect our intellectual property.
+
+   We rely primarily on a combination of patents, trademarks, copyrights, trade
+secrets, employee and third-party nondisclosure agreements and licensing
+arrangements to protect our intellectual property. We own 30 issued United
+States patents, have three United States patent applications allowed, and have
+36 United States patent applications pending. Our issued patents have
+expiration dates from April 14, 2015 to March 30, 2018. Our issued patents and
+pending patent applications relate to technology developed by us in connection
+with the development of our 3D graphics processors. Our pending patent
+applications and any future applications may not be approved. In addition, any
+issued patents may not provide us with competitive advantages or may be
+challenged by third parties. The enforcement of patents of others may harm our
+ability to conduct our business. Others may independently develop substantially
+equivalent intellectual property or otherwise gain access to our trade secrets
+or intellectual property, or disclose our intellectual property or trade
+secrets. Our failure to effectively protect our intellectual property could
+harm our business. We have licensed technology from third parties for
+incorporation in our graphics processors, and expect to continue to enter into
+license agreements for future products. These licenses may result in royalty
+payments to third parties, the cross-license of technology by us or payment of
+other consideration. If these arrangements are not concluded on commercially
+reasonable terms, our business could suffer.
+
+ Our failure to achieve one or more design wins would harm our business.
+
+   Our future success will depend in large part on achieving design wins, which
+entails having our existing and future products chosen as the 3D graphics
+processors for hardware components or subassemblies designed by PC OEMs and
+motherboard and add-in board manufacturers. Our add-in board manufacturers and
+major OEM customers typically introduce new system configurations as often as
+twice per year, generally based on spring and fall design cycles. Accordingly,
+our existing products must have competitive performance levels or we must
+timely introduce new products with such performance characteristics in order to
+be included in new system configurations. Our failure to achieve one or more
+design wins would harm our business. The process of being qualified for
+inclusion in a PC OEM's product can be lengthy and could cause us to miss a
+cycle in the demand of end users for a particular product feature, which also
+could harm our business.
+
+   Our ability to achieve design wins also depends in part on our ability to
+identify and ensure compliance with evolving industry standards. Unanticipated
+changes in industry standards could render our products incompatible with
+products developed by major hardware manufacturers and software developers,
+including Intel and Microsoft. This would require us to invest significant time
+and resources to redesign our products to
+
+                                       18
+<PAGE>
+
+ensure compliance with relevant standards. If our products are not in
+compliance with prevailing industry standards for a significant period of time,
+our ability to achieve design wins could suffer.
+
+ We are dependent on the PC market, which may not continue to grow.
+
+   In fiscal 2000, we derived all of our revenue from the sale of products for
+use in PCs. In the first quarter of fiscal 2001, we derived all of our revenue
+from the sale of products for use in the entire desktop PC market, from
+professional workstations to low-cost PCs. We expect to continue to derive
+substantially all of our revenue from the sale or license of products for use
+in PCs in the next several years. The PC market is characterized by rapidly
+changing technology; evolving industry standards, frequent new product
+introductions and significant price competition. These factors result in short
+product life cycles and regular reductions of average selling prices over the
+life of a specific product. Although the PC market has grown substantially in
+recent years, this growth may not continue. A reduction in sales of PCs, or a
+reduction in the growth rate of PC sales, would likely reduce demand for our
+products. Moreover, changes in demand could be large and sudden. Since PC
+manufacturers often build inventories during periods of anticipated growth,
+they may be left with excess inventories if growth slows or if they have
+incorrectly forecast product transitions. In these cases, PC manufacturers may
+abruptly suspend substantially all purchases of additional inventory from
+suppliers like us until the excess inventory has been absorbed. Any reduction
+in the demand for PCs generally, or for a particular product that incorporates
+our 3D graphic processors, could harm our business.
+
+ The acceptance of next generation products in business PC 3D graphics may not
+ continue to develop.
+
+   Our success will depend in part upon the demand for performance 3D graphics
+for business PC applications. The market for performance 3D graphics on
+business PCs has only recently begun to emerge and is dependent on the future
+development of, and substantial end-user and OEM demand for, 3D graphics
+functionality. As a result, the market for business PC 3D graphics computing
+may not continue to develop or may not grow at a rate sufficient to support our
+business. The development of the market for performance 3D graphics on business
+PCs will in turn depend on the development and availability of a large number
+of business PC software applications that support or take advantage of
+performance 3D graphics capabilities. Currently there are only a limited number
+of software applications like this, most of which are games, and a broader base
+of software applications may not develop in the near term or at all.
+Consequently, a broad market for full function performance 3D graphics on
+business PCs may not develop. Our business prospects will suffer if the market
+for business PC 3D graphics fails to develop or develops more slowly than
+expected.
+
+ We are dependent on a small number of customers and we are subject to order
+ and shipment uncertainties.
+
+   We have only a limited number of customers and our sales are highly
+concentrated. We primarily sell our products to add-in board and motherboard
+manufacturers and CEMs, which incorporate graphics products in the boards they
+sell to PC OEMs. Sales to add-in board manufacturers and CEMs are primarily
+dependent on achieving design wins with leading PC OEMs. The number of add-in
+board manufacturers and CEMs and leading PC OEMs is limited. We expect that a
+small number of add-in board manufacturers and CEMs directly, and a small
+number of PC OEMs indirectly, will continue to account for a substantial
+portion of our revenue for the foreseeable future. As a result, our business
+could be harmed by the loss of business from PC OEMs or add-in board
+manufacturers and CEMs. In addition, revenue from add-in board manufacturers,
+motherboard manufacturers, CEMs and PC OEMs that have directly or indirectly
+accounted for significant revenue in past periods, individually or as a group,
+may not continue, or may not reach or exceed historical levels in any future
+period. In October 1999, S3, a supplier of graphics processors and a
+competitor, completed the acquisition of Diamond, one of our largest customers.
+Following the consummation of the acquisition, our sales to Diamond declined
+significantly to less than 1% of total revenue in the first quarter of fiscal
+2001 from 26% of total revenue in the first quarter of fiscal 2000. 3Dfx, a 3D
+graphics company and a competitor, completed the acquisition of STB in May
+1999. Sales to STB, another one of our largest customers, declined
+significantly from prior levels following the acquisition and our relationship
+with STB terminated in the fourth quarter of fiscal 2000.
+
+                                       19
+<PAGE>
+
+   Our business may be harmed by instability in Asia due to the concentration
+of customers who are located or have substantial operations in Asia, including
+Taiwan. The People's Republic of China and Taiwan have in the past experienced
+and currently are experiencing strained relations. A worsening of these
+relations or the development of hostilities between the two could result in
+disruptions in Taiwan and possibly other areas of Asia, which could harm our
+business. While we believe political instability in Asia has not adversely
+affected our business, because of our reliance on companies with operations in
+Asia, continued economic and political instability in Asia might harm us.
+
+ We may be unable to manage our growth and, as a result, may be unable to
+ successfully implement our strategy.
+
+   Our rapid growth has placed, and is expected to continue to place, a
+significant strain on our managerial, operational and financial resources. As
+of April 30, 2000, we had 462 employees as compared to 392 employees as of
+January 30, 2000. We expect that the number of our employees will increase
+substantially over the next 12 months. Our future growth, if any, will depend
+on our ability to continue to implement and improve operational, financial and
+management information and control systems on a timely basis, as well as our
+ability to maintain effective cost controls. Further, we will be required to
+manage multiple relationships with various customers and other third parties.
+Our systems, procedures or controls may not be adequate to support our
+operations and our management may be unable to achieve the rapid execution
+necessary to successfully implement our strategy.
+
+ We are dependent on key personnel and the loss of these employees could harm
+ our business.
+
+   Our performance will be substantially dependent on the performance of our
+executive officers and key employees. None of our officers or employees is
+bound by an employment agreement, and our relationships with these officers and
+employees are, therefore, at will. We do not have "key person" life insurance
+policies on any of our employees. The loss of the services of any of our
+executive officers, technical personnel or other key employees, particularly
+Jen-Hsun Huang, our President and Chief Executive Officer, would harm our
+business. Our success will depend on our ability to identify, hire, train and
+retain highly qualified technical and managerial personnel. Our failure to
+attract and retain the necessary technical and managerial personnel would harm
+our business.
+
+ We depend on third-party fabrications to produce our products.
+
+   We do not manufacture the semiconductor wafers used for our products and do
+not own or operate a wafer fabrication facility. Our products require wafers
+manufactured with state-of-the-art fabrication equipment and techniques. We
+utilize TSMC and WaferTech to produce our semiconductor wafers and utilize
+independent contractors to perform assembly, test and packaging. We depend on
+these suppliers to allocate to us a portion of their manufacturing capacity
+sufficient to meet our needs, to produce products of acceptable quality and at
+acceptable manufacturing yields, and to deliver those products to us on a
+timely basis. These manufacturers may be unable to meet our near-term or long-
+term manufacturing requirements. We obtain manufacturing services on a purchase
+order basis and TSMC has no obligation to provide us with any specified minimum
+quantities of product. TSMC fabricates wafers for other companies, including
+certain of our competitors, and could choose to prioritize capacity for other
+users or reduce or eliminate deliveries to us on short notice. Because the lead
+time needed to establish a strategic relationship with a new manufacturing
+partner could be several quarters, there is no readily available alternative
+source of supply for any specific product. We believe that long-term market
+acceptance for our products will depend on reliable relationships with TSMC and
+any other manufacturers used by us to ensure adequate product supply to respond
+to customer demand.
+
+   In September 1999, a significant earthquake in Taiwan contributed to a
+temporary shortage of graphics processors in the third and fourth quarters of
+fiscal 2000. Because of our reliance on TSMC, our business may be harmed by
+political instability in Taiwan, including the worsening of the strained
+relations between The People's Republic of China and Taiwan. Furthermore, any
+substantial disruption in our suppliers' operations,
+
+                                       20
+<PAGE>
+
+either as a result of a natural disaster, political unrest, economic
+instability, equipment failure or other cause, could harm our business.
+
+   We are dependent primarily on TSMC and we expect in the future to continue
+to be dependent upon third-party manufacturers to do the following:
+
+  .produce wafers of acceptable quality and with acceptable manufacturing
+   yields;
+
+  . deliver those wafers to us and our independent assembly and testing
+    subcontractors on a timely basis; and;
+
+  .allocate to us a portion of their manufacturing capacity sufficient to
+   meet our needs.
+
+   Our wafer requirements represent a significant portion of the total
+production capacity of TSMC. Although our products are designed using TSMC's
+process design rules, TSMC may be unable to achieve or maintain acceptable
+yields or deliver sufficient quantities of wafers on a timely basis or at an
+acceptable cost. Additionally, TSMC may not continue to devote resources to the
+production of our products, or to advance the process design technologies on
+which the manufacturing of our products is based. Any difficulties like these
+would harm our business.
+
+ Failure to achieve expected manufacturing yields would reduce our product
+ supply and harm our business.
+
+   Semiconductor manufacturing yields are a function both of product design,
+which is developed largely by us, and process technology, which typically is
+proprietary to the manufacturer. Since low yields may result from either design
+or process technology failures, yield problems may not be effectively
+determined or resolved until an actual product exists that can be analyzed and
+tested to identify process sensitivities relating to the design rules that are
+used. As a result, yield problems may not be identified until well into the
+production process, and resolution of yield problems would require cooperation
+by and communication between the manufacturer and us.
+
+   The risk of low yields is compounded by the offshore location of most of our
+manufacturers, increasing the effort and time required to identify, communicate
+and resolve manufacturing yield problems. Because of our potentially limited
+access to wafer fabrication capacity from our manufacturers, any decrease in
+manufacturing yields could result in an increase in our per unit costs and
+force us to allocate our available product supply among our customers. This
+could potentially harm customer relationships as well as revenue and gross
+profit. Our wafer manufacturers may be unable to achieve or maintain acceptable
+manufacturing yields in the future. Our inability to achieve planned yields
+from our wafer manufacturers could harm our business. We also face the risk of
+product recalls or product returns resulting from design or manufacturing
+defects that are not discovered during the manufacturing and testing process.
+In the event of a significant number of product returns due to a defect or
+recall, our business could suffer.
+
+ Failure to transition to new manufacturing process technologies could affect
+ our ability to compete effectively.
+
+   Our strategy is to utilize the most advanced semiconductor process
+technology appropriate for our products and available from commercial third-
+party foundries. Use of advanced processes may have greater risk of initial
+yield problems. Manufacturing process technologies are subject to rapid change
+and require significant expenditures for research and development. We
+continuously evaluate the benefits of migrating to smaller geometry process
+technologies in order to improve performance and reduce costs. We have migrated
+to the .18 micron technology with the GeForce2 GTS GPUs, and we believe that
+the transition of our products to increasingly smaller geometries will be
+important to our competitive position. Other companies in the industry have
+experienced difficulty in migrating to new manufacturing processes and,
+consequently, have suffered reduced yields, delays in product deliveries and
+increased expense levels. We may experience similar difficulties and the
+corresponding negative effects. Moreover, we are dependent on our relationships
+with our
+
+                                       21
+<PAGE>
+
+third-party manufacturers to migrate to smaller geometry processes
+successfully. We may be unable to migrate to new manufacturing process
+technologies successfully or on a timely basis.
+
+ The 3D graphics industry is highly competitive and we may be unable to
+ compete.
+
+   The market for 3D graphics processors for PCs in which we compete is
+intensely competitive and is characterized by rapid technological change,
+evolving industry standards and declining average selling prices. We believe
+that the principal competitive factors in this market are performance, breadth
+of product offerings, access to customers and distribution channels, backward-
+forward software support, conformity to industry standard APIs, manufacturing
+capabilities, price of graphics processors and total system costs of add-in
+boards and motherboards. We expect competition to increase both from existing
+competitors and new market entrants with products that may be less costly than
+our 3D graphics processors or may provide better performance or additional
+features not provided by our products.
+
+   Our primary source of competition is from companies that provide or intend
+to provide 3D graphics solutions for the PC market. Our competitors include the
+following:
+
+  . suppliers of graphics add-in boards that utilize their internally
+    developed graphics chips, such as ATI Technologies Inc., Matrox
+    Electronics Systems Ltd. and S3;
+
+  . suppliers of integrated core logic chipsets that incorporate 2D and 3D
+    graphics functionality as part of their existing solutions, such as
+    Intel, Silicon Integrated Systems and Via Technologies;
+
+  . companies that have traditionally focused on the professional market and
+    provide high end 3D solutions for PCs and workstations, including 3Dlabs
+    Inc., Ltd., SGI, Evans and Sutherland Computer Corporation and Intergraph
+    Corporation; and
+
+  .companies with strength in the video game market, such as 3Dfx and
+   VideoLogic Group plc.
+
+ We may compete with Intel in the integrated low-cost chipset market.
+
+   In June 1999, Intel began shipping the Intel 810, a 3D graphics chipset that
+is targeted at the low-cost PC market. Intel has significantly greater
+resources than we do, and our products may not compete effectively against
+future products introduced by Intel. In addition, we may be unable to compete
+effectively against Intel or Intel may introduce additional products that are
+competitive with our products in either performance or price or both. We expect
+Intel to continue to do the following:
+
+  . invest heavily in research and development and new manufacturing
+    facilities;
+
+  . maintain its position as the largest manufacturer of PC microprocessors;
+
+  . increasingly dominate the PC platform; and
+
+  . promote its product offerings through advertising campaigns designed to
+    engender brand loyalty among PC users.
+
+   Intel may in the future develop graphics add-in cards or graphics-enabled
+motherboards that could directly compete with graphics add-in cards or
+graphics-enabled motherboards that our customers may develop. In addition, due
+to the widespread industry acceptance of Intel's microprocessor architecture
+and interface architecture, including its AGP, and Intel's intellectual
+property position with respect to such architecture, Intel exercises
+significant influence over the PC industry generally. Any significant
+modifications by Intel to the AGP, the microprocessor or core logic components
+or other aspects of the PC microprocessor architecture could result in
+incompatibility with our technology, which would harm our business. In
+addition, any delay in the public release of information relating to
+modifications like this could harm our business.
+
+
+                                       22
+<PAGE>
+
+ We are dependent on third parties for assembly and testing of our products.
+
+   Our graphics processors are assembled and tested by Amkor Technology Inc.,
+Siliconware Precision Industries Company Ltd., ChipPAC Incorporated and
+Advanced Semiconductor Engineering based in Asia. Because we rely on Asian
+assembly and test subcontractors, our business may be harmed by political
+instability in Asia, including the worsening of the strained relations between
+The People's Republic of China and Taiwan. We do not have long-term agreements
+with any of these subcontractors. As a result of our dependence on third-party
+subcontractors for assembly and testing of our products, we do not directly
+control product delivery schedules or product quality. Any product shortages or
+quality assurance problems could increase the costs of manufacture, assembly or
+testing of our products and could harm our business. Due to the amount of time
+typically required to qualify assemblers and testers, we could experience
+significant delays in the shipment of our products if we are required to find
+alternative third parties to assemble or test our products or components. Any
+delays in delivery of our products could harm our business.
+
+ We are subject to risks associated with product defects and incompatibilities.
+
+   Products as complex as ours may contain defects or failures when introduced
+or when new versions or enhancements to existing products are released. We have
+in the past discovered software defects and incompatibilities with customers'
+hardware in certain of our products and may experience delays or lost revenue
+to correct any new defects in the future. Errors in new products or releases
+after commencement of commercial shipments could result in loss of market share
+or failure to achieve market acceptance. Our products typically go through only
+one verification cycle prior to beginning volume production and distribution.
+As a result, our products may contain defects or flaws that are undetected
+prior to volume production and distribution. The widespread production and
+distribution of defective products could harm our business.
+
+ We are subject to risks associated with international operations.
+
+   Our reliance on foreign third-party manufacturing, assembly and testing
+operations subjects us to a number of risks associated with conducting business
+outside of the United States, including the following:
+
+  . unexpected changes in, or impositions of, legislative or regulatory
+    requirements;
+
+  . delays resulting from difficulty in obtaining export licenses for certain
+    technology, tariffs, quotas and other trade barriers and restrictions;
+
+  . longer payment cycles;
+
+  . potentially adverse taxes;
+
+  . the burdens of complying with a variety of foreign laws; and
+
+  . other factors beyond our control.
+
+   We also are subject to general political risks in connection with our
+international trade relationships. In addition, the laws of certain foreign
+countries in which our products are or may be manufactured or sold, including
+various countries in Asia, may not protect our products or intellectual
+property rights to the same extent, as do the laws of the United States. This
+makes the possibility of piracy of our technology and products more likely.
+Currently, all of our arrangements with third-party manufacturers provide for
+pricing and payment in U.S. dollars, and to date we have not engaged in any
+currency hedging activities, although we may do so in the future. Fluctuations
+in currency exchange rates could harm our business in the future.
+
+ The semiconductor industry is cyclical in nature.
+
+   The semiconductor industry historically has been characterized by the
+following factors:
+
+  . rapid technological change;
+
+
+                                       23
+<PAGE>
+
+  . cyclical market patterns;
+
+  . significant average selling price erosion;
+
+  . fluctuating inventory levels;
+
+  . alternating periods of overcapacity and capacity constraints; and
+
+  . variations in manufacturing costs and yields and significant expenditures
+    for capital equipment and product development.
+
+   In addition, the industry has experienced significant economic downturns at
+various times, characterized by diminished product demand and accelerated
+erosion of average selling prices. We may experience substantial period-to-
+period fluctuations in results of operations due to general semiconductor
+industry conditions.
+
+ Failure in implementation of our enterprise resource planning system could
+ adversely affect our operations.
+
+   In December 1999, we began the implementation of an SAP A.G. system as our
+enterprise resource planning, or ERP, system to replace our information systems
+in business, finance, operations and service. The implementation is expected to
+occur in phases throughout fiscal 2001. We are heavily dependent upon the
+proper functioning of our internal systems to conduct our business. There is no
+assurance that we will be successful in the implementation of our ERP system.
+Delays in the implementation, system failure or malfunctioning may result in
+disruptions of operations and inability to process transactions. Our results of
+operations and financial position could be adversely affected if we encounter
+unforeseen problems with respect to this implementation.
+
+                                       24
+<PAGE>
+
+PART II: OTHER INFORMATION
+
+Item 1. Legal Proceedings
+
+   On February 22, 2000, Graphiques Matrox, Inc. and Systemes Electroniques
+Matrox Ltd. (collectively "Matrox") filed suit against us in the Superior
+Court, Judicial District of Montreal, Province of Quebec, Canada. The suit
+alleges that we improperly solicited and recruited Matrox employees and
+encouraged Matrox employees to breach their Matrox confidentiality and/or non-
+competition agreements. The suit by Matrox seeks, among other things, certain
+injunctive relief. We believe that the claims asserted by Matrox are without
+merit and we intend to vigorously defend this suit.
+
+   On May 19, 2000, we filed suit against Matrox in Santa Clara County Superior
+Court alleging that Matrox's efforts to prevent its current and former
+employees from pursuing employment opportunities with us constitute
+interference with prospective economic advantage and contract and unfair
+competition. Our suit seeks, among other things, unspecified monetary damages,
+a declaration that Matrox's confidentiality and/or non-competition agreements
+are unenforceable under California law and a declaration that its use of those
+agreements and other tactics constitutes unfair competition. On May 26, 2000,
+the case was transferred to the San Jose Division of the United States District
+Court for the Northern District of California.
+
+Item 2. Changes in Securities and Use of Proceeds
+
+Use of Proceeds from Sales of Registered Securities
+
+   We commenced our initial public offering on January 21, 1999 pursuant to a
+Registration Statement on Form S-1 (File No. 333-47495). The managing
+underwriters of the public offering were Morgan Stanley & Co., Hambrecht &
+Quist and Prudential Securities (the Underwriters). In the offering, we sold an
+aggregate of 3.5 million shares of our common stock for an initial price of
+$12.00 per share. On February 2, 1999, we sold an additional 525,000 shares of
+our common stock at a price of $12.00 per share pursuant to the exercise of the
+Underwriters' over-allotment option. The aggregate proceeds from the offering
+were $48.3 million. We paid expenses of approximately $5.0 million, of which
+approximately $3.4 million represented underwriting discounts and commissions
+and approximately $1.6 million represented expenses related to the offering.
+Net proceeds from the offering were $43.3 million. Of the net proceeds, as of
+April 30, 2000, $5.0 million had been used to repay in full amounts outstanding
+under a bank line of credit. The use of the proceeds from the offering does not
+represent a material change in the use of proceeds described in our
+Registration Statement. As of April 30, 2000, the remainder of the net proceeds
+was invested in money market funds or held as cash.
+
+Item 6. Exhibits and Reports on Form 8-K
+
+   (a) Exhibits
+
+   The following exhibits are filed herewith:
+
+<TABLE>
+<CAPTION>
+   Exhibit
+   Number  Description of Document
+   ------- -----------------------
+   <C>     <S>
+   27.1    Financial Data Schedule
+</TABLE>
+
+   (b) Reports on Form 8-K
+
+   No Reports on Form 8-K were filed by the registrant during the three months
+ended April 30, 2000.
+
+
+                                       25
+<PAGE>
+
+                                   SIGNATURE
+
+   Pursuant to the requirements of the Securities Exchange Act of 1934, the
+Registrant has duly caused this report to be signed on its behalf by the
+undersigned, thereunto duly authorized, on June 14, 2000.
+
+                                          NVIDIA Corporation
+
+                                          By: /s/    Christine B. Hoberg
+                                            -----------------------------------
+                                                   Christine B. Hoberg
+                                           Chief Financial Officer (Principal
+                                            Financial and Accounting Officer)
+
+                                       26
+<PAGE>
+
+                               INDEX TO EXHIBITS
+
+<TABLE>
+<CAPTION>
+ Exhibit
+ Number   Description of Document
+ -------  -----------------------
+ <C>     <S>
+ 27.1     Financial Data Schedule
+</TABLE>
+
+                                       27
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-27.1
+<SEQUENCE>2
+<FILENAME>0002.txt
+<DESCRIPTION>FINANCIAL DATA SCHEDULE
+<TEXT>
+
+<TABLE> <S> <C>
+
+<PAGE>
+
+<ARTICLE> 5
+<LEGEND>
+THIS SCHEDULE CONTAINS SUMMARY FINANCIAL INFORMATION EXTRACTED FROM THE BALANCE
+SHEET AS OF APRIL 30, 2000 AND THE STATEMENTS OF INCOME FOR THE THREE MONTHS
+ENDED APRIL 30, 2000.
+</LEGEND>
+<MULTIPLIER> 1,000
+
+<S>                             <C>
+<PERIOD-TYPE>                   3-MOS
+<FISCAL-YEAR-END>                          JAN-28-2001
+<PERIOD-START>                             JAN-31-2000
+<PERIOD-END>                               APR-30-2000
+<CASH>                                         269,800
+<SECURITIES>                                         0
+<RECEIVABLES>                                   80,244
+<ALLOWANCES>                                     8,246
+<INVENTORY>                                     55,241
+<CURRENT-ASSETS>                               413,226
+<PP&E>                                          48,449
+<DEPRECIATION>                                  18,006
+<TOTAL-ASSETS>                                 447,791
+<CURRENT-LIABILITIES>                           84,398
+<BONDS>                                              0
+<PREFERRED-MANDATORY>                                0
+<PREFERRED>                                          0
+<COMMON>                                            32
+<OTHER-SE>                                     162,414
+<TOTAL-LIABILITY-AND-EQUITY>                   447,791
+<SALES>                                        148,483
+<TOTAL-REVENUES>                               148,483
+<CGS>                                           92,975
+<TOTAL-COSTS>                                   92,975
+<OTHER-EXPENSES>                                29,944
+<LOSS-PROVISION>                                     0
+<INTEREST-EXPENSE>                                  51
+<INCOME-PRETAX>                                 26,892
+<INCOME-TAX>                                     8,605
+<INCOME-CONTINUING>                             18,287
+<DISCONTINUED>                                       0
+<EXTRAORDINARY>                                      0
+<CHANGES>                                            0
+<NET-INCOME>                                    18,287
+<EPS-BASIC>                                       0.58
+<EPS-DILUTED>                                     0.47
+
+
+</TABLE>
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>
+-----END PRIVACY-ENHANCED MESSAGE-----

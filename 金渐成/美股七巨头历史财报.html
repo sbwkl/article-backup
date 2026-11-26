@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股七巨头历史财报 · 六财年验证数据（2020–2025）</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1c2733; --sub:#5b6b7b; --line:#e3e8ee;
+    --blue:#2563eb; --green:#059669; --orange:#d97706; --red:#dc2626;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:24px 16px 60px}
+  .wrap{max-width:1240px;margin:0 auto}
+  h1{font-size:22px;margin-bottom:4px}
+  h2{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h2 .step{background:var(--ink);color:#fff;border-radius:6px;font-size:12px;padding:2px 8px;font-family:var(--mono)}
+  .meta{color:var(--sub);font-size:13px;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+  .tabs button{font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 16px;cursor:pointer;color:var(--sub)}
+  .tabs button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+  .tabs button:hover:not(.active){border-color:var(--blue);color:var(--blue)}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+  th{color:var(--sub);font-weight:500;text-align:right;border-bottom:1px solid var(--line);padding:5px 8px;white-space:nowrap}
+  td{text-align:right;padding:5px 8px;border-bottom:1px solid #f1f4f8;font-family:var(--mono);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  td:first-child{font-family:inherit;font-weight:500}
+  tr.derived td{background:#f8fafc;color:var(--blue)}
+  tr.total td{font-weight:700;border-top:2px solid var(--line);background:#f8fafc}
+  .ok{color:var(--green);font-weight:700}
+  .warn{color:var(--orange);font-weight:700}
+  .note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:8px;padding:8px 12px;font-size:12.5px;margin:8px 0}
+  .note.blue{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+  .method-intro{font-size:13.5px;color:var(--sub);background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:14px;line-height:1.8}
+  .method-intro b{color:var(--ink)}
+  ul{margin:6px 0 6px 20px;font-size:13px}
+  li{margin:3px 0}
+  a{color:var(--blue);text-decoration:none;word-break:break-all}
+  a:hover{text-decoration:underline}
+  .src-group{margin:8px 0}
+  .src-group .t{font-weight:600;font-size:13px;margin-bottom:2px}
+  .foot{color:var(--sub);font-size:12px;margin-top:20px;line-height:1.8}
+  .scroll{overflow-x:auto}
+  .badge{font-size:11px;border-radius:4px;padding:1px 6px;white-space:nowrap;font-weight:500;background:#d1fae5;color:#065f46}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>美股七巨头历史财报 · 六财年验证数据</h1>
+  <div class="meta">Apple / Microsoft / Alphabet / Amazon / NVIDIA / Tesla / Meta ｜ 采集日 2026-11-19 ｜ 单位：百万美元（EPS 美元、股数百万股）｜ 1 亿 = 100 百万</div>
+
+  <div class="card">
+    <h2><span class="step">采集与证明</span>数据从哪里来，怎么证明准确</h2>
+    <div class="method-intro">
+      <b>三层证明：</b><br>
+      ① <b>历史数据双源交叉</b>：stockanalysis.com（数据源 S&amp;P Global Market Intelligence）与 macrotrends 逐年逐项核对营收/净利/稀释EPS/经营现金流/资本开支；macrotrends 被反爬拦截时改用 <b>SEC EDGAR XBRL（10-K as-reported）</b>作独立第二源。<br>
+      ② <b>最新财年官方逐项链</b>：每家公司最近一个财年回溯到公司官方财报新闻稿 / SEC 8-K Ex-99.1 / 10-K，逐项确认（链接见各公司页"来源"）。<br>
+      ③ <b>数学自洽复算</b>：本页内置复算——FCF = 经营现金流 − 资本开支；毛利率/营业利润率/净利率 = 对应利润 ÷ 营收；稀释EPS × 稀释加权股数 ≈ 净利润（容差 2%，超出者标明原因）；营收同比增速。复算结果见各公司页"数学验证"表。
+    </div>
+    <div class="note blue"><b>统一口径</b>：GAAP as-reported（不采用 S&amp;P "标准化"重分类）；总债务 = 短期借款 + 一年内到期长期债 + 长期债，<b>剔除经营租赁</b>（Tesla 含融资租赁，因其债务主体为融资租赁）；资本开支 = 现金流量表"购建固定资产"现金口径（NVDA 含无形资产；AMZN 为总额、不含融资租赁设备；MSFT 不含融资租赁）；现金+短期投资 <b>不含</b>长期/非上市有价证券；EPS 与股数已复权拆股；亚马逊/谷歌/Meta 毛利为推导值（营收−营业成本，公司不单独列示）。</div>
+    <div class="note"><b>已知定义性差异（非错误，均保留 as-reported）</b>：各聚合站"Total Debt"含租赁负债，与本表口径不同；S&amp;P 对 AMZN 2022、META 2022、TSLA 2020/2024、NVDA 2021/2023 的营业利润做了重分类，本表一律采用公司披露值；AMZN/META 官方口径 FCF 与"OCF−CapEx"略有差（融资租赁/出售回款），两口径均列示。详见各公司页差异日志。</div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="pages"></div>
+
+  <div class="foot">
+    用途：为"英伟达估值推演"页的 DCF / 远期PE 模型提供可追溯输入（FCF 基数、增速、利润率、股本、净现金）。本页所有数字以来源站显示值（百万美元整数）录入，未做四舍五入加工；推导值由页面实时复算。<br>
+    提醒：GAAP 净利含一次性项（谷歌/亚马逊股权浮盈浮亏、特斯拉 2023 递延税释放、Meta 2025 一次性税charge、英伟达股权浮盈），用于估值前应按"六要素排雷"口径正常化。不构成投资建议。
+  </div>
+</div>
+
+<script>
+"use strict";
+const C = [
+{id:"aapl",name:"Apple",years:["FY2020","FY2021","FY2022","FY2023","FY2024","FY2025"],
+ fy:"财年截止 9 月末：FY2020=2020-09-26 … FY2025=2025-09-27（FY2023 为 53 周年）",
+ rev:[274515,365817,394328,383285,391035,416161],
+ gp:[104956,152836,170782,169148,180683,195201],
+ oi:[66288,108949,119437,114301,123216,133050],
+ ni:[57411,94680,99803,96995,93736,112010],
+ eps:[3.28,5.61,6.11,6.13,6.08,7.46],
+ sh:[17528.214,16864.919,16325.819,15812.547,15408.095,15004.697],
+ ocf:[80674,104038,122151,110543,118254,111482],
+ capex:[7309,11085,10708,10959,9447,12715],
+ cash:[90943,62639,48304,61555,65171,54697],
+ debt:[112436,124719,120069,111088,106629,98657],
+ cross:"stockanalysis × macrotrends：6 年 × 5 指标 = 30/30 精确相等；FY2024/25 另与 SEC 8-K 官方报表精确一致；FY2020/21 与 10-K 精确一致。EPS×股数 vs 净利偏差 0.05–0.14%。",
+ disc:["总债务口径：stockanalysis 含租赁（FY2025 为 112,377），本表 98,657 = 商业票据 7,979 + 一年内 12,350 + 长期 78,328。",
+       "FY2025 回购：stockanalysis 96,671 vs 官方 90,711，差 5,960 为股权激励净结算代扣税（非本表字段，仅提示）。"],
+ notes:["现金+短投不含长期有价证券；FY2025 = 35,934 + 18,763。",
+        "macrotrends 年度列标签用日历日，数值实为苹果财年。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/aapl/financials/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/aapl/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/aapl/financials/balance-sheet/"],["SEC FY2021 10-K（补 FY2020）","https://www.sec.gov/Archives/edgar/data/320193/000032019321000105/R2.htm"]],
+      b:[["macrotrends 营收","https://www.macrotrends.net/stocks/charts/AAPL/apple/revenue"],["macrotrends 净利","https://www.macrotrends.net/stocks/charts/AAPL/apple/net-income"],["macrotrends EPS","https://www.macrotrends.net/stocks/charts/AAPL/apple/eps-earnings-per-share-diluted"],["macrotrends OCF","https://www.macrotrends.net/stocks/charts/AAPL/apple/cash-flow-from-operating-activities"],["macrotrends 现金流(CapEx)","https://www.macrotrends.net/stocks/charts/AAPL/apple/cash-flow-statement"]],
+      c:[["Apple 官方 FY2025 新闻稿","https://www.apple.com/newsroom/2025/10/apple-reports-fourth-quarter-results/"],["SEC 8-K Ex-99.1 完整报表","https://www.sec.gov/Archives/edgar/data/320193/000032019325000077/a8-kex991q4202509272025.htm"]]}},
+{id:"msft",name:"Microsoft",years:["FY2020","FY2021","FY2022","FY2023","FY2024","FY2025"],
+ fy:"财年截止 6-30：FY2020=2020-06-30 … FY2025=2025-06-30",
+ rev:[143015,168088,198270,211915,245122,281724],
+ gp:[96937,115856,135620,146052,171008,193893],
+ oi:[52959,69916,83383,88523,109433,128528],
+ ni:[44281,61271,72738,72361,88136,101832],
+ eps:[5.76,8.05,9.65,9.68,11.80,13.64],
+ sh:[7683,7608,7540,7472,7469,7465],
+ ocf:[60675,76740,89035,87582,118548,136162],
+ capex:[15441,20622,23886,28107,44477,64551],
+ cash:[136527,130334,104757,111262,75543,94565],
+ debt:[63327,58146,49781,47237,51630,43151],
+ cross:"stockanalysis × SEC EDGAR XBRL（10-K as-reported）：6 年 × 5 指标 0.00% 差异；短期投资 ≤0.07% 差，保留 10-K。EPS×股数 vs 净利最大偏差 0.06%。",
+ disc:["总债务剔除经营+融资租赁（stockanalysis 口径 FY2025 为 112,184，本表 43,151）。",
+       "CapEx = 现金流\"Additions to property and equipment\"，不含融资租赁（公司电话会口径含融资租赁，更高）。",
+       "FY2024 短期借款 = 商业票据 6,693。"],
+ notes:["FY2020 超出 stockanalysis 展示窗口，取自 FY2020 10-K（EDGAR）。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/msft/financials/income-statement/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/msft/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/msft/financials/balance-sheet/"]],
+      b:[["SEC EDGAR XBRL companyfacts","https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json"]],
+      c:[["Microsoft FY25 Q4 官方新闻稿","https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast"]]}},
+{id:"googl",name:"Alphabet",years:["2020","2021","2022","2023","2024","2025"],
+ fy:"日历年，截止 12-31",
+ rev:[182527,257637,282836,307394,350018,402836],
+ gp:[97795,146698,156633,174062,203712,240301],
+ oi:[41224,78714,74842,84293,112390,129039],
+ ni:[40269,76033,59972,73795,100118,132170],
+ eps:[2.93,5.61,4.56,5.80,8.04,10.81],
+ sh:[13741,13553,13159,12722,12447,12230],
+ ocf:[65124,91652,91495,101746,125299,164713],
+ capex:[22281,24640,31485,32251,52535,91447],
+ cash:[136694,139649,113762,110916,95657,126843],
+ debt:[13831,12844,12857,12870,14182,48543],
+ cross:"stockanalysis × macrotrends：营收/净利/OCF/CapEx 六年精确一致；2025 稀释EPS 10.80 vs 官方 10.81（0.09%），保留官方 10.81（132,170÷12,230=10.807）。EPS×股数最大偏差 0.06%。",
+ disc:["总债务剔除租赁（2025：66,996 − 3,650 − 14,803 = 48,543，与 10-K 一致）；2025 长期债 46,547 为大额发债后。",
+       "毛利为推导值：2025 = 402,836 − 162,535 = 240,301。"],
+ notes:["净利含大额未实现股权损益（OI&E）：+6,317(2020) +12,270(2021) −5,519(2022) −823(2023) +2,671(2024) +24,620(2025)；2025 营业利润含 Waymo 薪酬 charge 21 亿。估值前需正常化。",
+        "现金+短投不含非上市/长期投资（2025 为 68,687）。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/googl/financials/income-statement/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/googl/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/googl/financials/balance-sheet/"]],
+      b:[["macrotrends 营收","https://www.macrotrends.net/stocks/charts/GOOGL/alphabet/revenue"],["macrotrends 净利","https://www.macrotrends.net/stocks/charts/GOOGL/alphabet/net-income"],["macrotrends EPS","https://www.macrotrends.net/stocks/charts/GOOGL/alphabet/eps-earnings-per-share-diluted"],["macrotrends OCF","https://www.macrotrends.net/stocks/charts/GOOGL/alphabet/cash-flow-from-operating-activities"],["macrotrends 现金流(CapEx)","https://www.macrotrends.net/stocks/charts/GOOGL/alphabet/cash-flow-statement"]],
+      c:[["SEC Ex-99.1 FY2025 新闻稿","https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm"],["Alphabet IR 同稿","https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Fourth-Quarter-2025-and-Fiscal-Year-Results-2026-KEvZIMKBLS/default.aspx"],["FY2025 10-K（债务组件）","https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"]]}},
+{id:"amzn",name:"Amazon",years:["2020","2021","2022","2023","2024","2025"],
+ fy:"日历年，截止 12-31；2022-05-27 二十拆一，EPS/股数已复权",
+ rev:[386064,469822,513983,574785,637959,716924],
+ gp:[152757,197478,225152,270046,311671,360510],
+ oi:[22899,24879,12248,36852,68593,79975],
+ ni:[21331,33364,-2722,30425,59248,77670],
+ eps:[2.09,3.24,-0.27,2.90,5.53,7.17],
+ sh:[10198,10296,10189,10492,10721,10827],
+ ocf:[66064,46327,46752,84946,115877,139514],
+ capex:[40140,61053,63645,52729,82999,131819],
+ cash:[84396,96049,70026,86780,101202,123029],
+ debt:[37207,57674,85115,73826,65203,77009],
+ cross:"stockanalysis × macrotrends：营收/净利/EPS/OCF 六年 0.0% 差；CapEx 以亚马逊官方 SEC 新闻稿逐年核对（macrotrends 无 AMZN capex 页）。2020–2025 全部六年均与官方 ex-99.1 核对。EPS×股数最大偏差 1.07%（2022 亏损年）。",
+ disc:["2022 营业利润保留 as-reported 12,248（S&P 标准化 13,348，把 1,100 资产减记移到营业线下，+9.0%）。",
+       "总债务用 S&P 三组件口径（含融资租赁义务、剔除经营租赁）；公司披露长期债单列备忘：31,816/48,744/67,150/58,314/52,623/65,648。",
+       "FCF = OCF − 总 CapEx；公司headline FCF 再扣出售/激励回款：31,020/−9,069/−11,569/36,813/38,219/11,194。",
+       "CapEx 为现金购建总额，不含融资租赁设备（2020: 11,588；2021: 7,061；2022: 675）。"],
+ notes:["净利含 Rivian 等投资 marks：2021 +14,707 / 2022 −15,926 / 2025 +15,301（S&P 投资损益行）；估值前需正常化。",
+       "2022 稀释股数 = 基本股数（亏损年反稀释）。毛利推导，营业成本六年经 SEC 核对：233,307/272,344/288,831/304,739/326,288/356,414。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/amzn/financials/income-statement/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/amzn/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/amzn/financials/balance-sheet/"]],
+      b:[["macrotrends 营收","https://www.macrotrends.net/stocks/charts/AMZN/amazon/revenue"],["macrotrends 净利","https://www.macrotrends.net/stocks/charts/AMZN/amazon/net-income"],["macrotrends EPS","https://www.macrotrends.net/stocks/charts/AMZN/amazon/eps-earnings-per-share-diluted"],["macrotrends OCF","https://www.macrotrends.net/stocks/charts/AMZN/amazon/cash-flow-from-operating-activities"]],
+      c:[["Amazon FY2025 官方新闻稿","https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Fourth-Quarter-Results/"],["SEC ex-99.1 2025","https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm"],["SEC ex-99.1 2023(+2022)","https://www.sec.gov/Archives/edgar/data/1018724/000101872424000006/amzn-20231231xex991.htm"],["SEC ex-99.1 2022(+2021)","https://www.sec.gov/Archives/edgar/data/1018724/000101872423000002/amzn-20221231xex991.htm"],["SEC ex-99.1 2021(+2020)","https://www.sec.gov/Archives/edgar/data/1018724/000101872422000002/amzn-20211231xex991.htm"],["SEC ex-99.1 2020","https://www.sec.gov/Archives/edgar/data/1018724/000101872421000002/amzn-20201231xex991.htm"]]}},
+{id:"nvda",name:"NVIDIA",years:["FY2021","FY2022","FY2023","FY2024","FY2025","FY2026"],
+ fy:"财年截止 1 月末：FY2021=2021-01-31 … FY2026=2026-01-25；4:1(2021-07) 与 10:1(2024-06) 拆股已复权",
+ rev:[16675,26914,26974,60922,130497,215938],
+ gp:[10396,17475,15356,44301,97858,153463],
+ oi:[4532,10041,4224,32972,81453,130387],
+ ni:[4332,9752,4368,29760,72880,120067],
+ eps:[0.17,0.39,0.17,1.19,2.94,4.90],
+ sh:[25100,25350,25070,24940,24804,24514],
+ ocf:[5822,9108,5641,28090,64089,102718],
+ capex:[1128,976,1833,1069,3236,6042],
+ cash:[11561,21208,13296,25984,43210,62556],
+ debt:[6963,10946,10953,9709,8463,8468],
+ cross:"stockanalysis × SEC EDGAR XBRL：营收/净利/EPS/OCF/CapEx 六年 0.0% 差；FY2026 与官方新闻稿逐项一致；季度锚 44,062+46,743+57,006+68,127=215,938 ✓。",
+ disc:["FY2021 毛利保留 GAAP 10,396（S&P 10,557，+1.5%）；FY2021 营业利润 4,532（S&P 4,721）；FY2023 营业利润 4,224（S&P 5,577，把 Arm 违约金 1,353 移线下，+32%）。",
+       "总债务剔除经营租赁（FY2026：999 + 7,469 = 8,468，新闻稿确认）。",
+       "FY2026 \"Purchase of Intangibles −13,000\" 为 Groq 许可付款（投资活动），不计入 CapEx。",
+       "EPS×股数：FY2023 偏差 −2.4% 为两位小数舍入（精确 EPS = 4,368÷25,070 = 0.1742 → 0.17），见验证表\"精确EPS\"列。"],
+ notes:["CapEx = 现金流\"Purchases related to property and equipment and intangible assets\"；公司 non-GAAP FCF 再扣融资性付款（FY2026: 101）→ 96,575 vs 本表 96,676。",
+        "非上市股权（非有价证券）：144/266/299/1,321/3,387/22,251，不计入现金+短投。",
+        "FY2027 为进行中财年，不纳入年度表（模型页用其 Q3 实际+Q4 指引）。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/nvda/financials/income-statement/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/nvda/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/nvda/financials/balance-sheet/"]],
+      b:[["SEC EDGAR XBRL companyfacts","https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json"],["SEC FY2022 10-K 现金流(R9)","https://www.sec.gov/Archives/edgar/data/1045810/000104581022000036/R9.htm"],["SEC FY2026 10-K 资产负债(R5)","https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/R5.htm"]],
+      c:[["NVIDIA FY2026 官方新闻稿(2026-02-25)","https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026"]]}},
+{id:"tsla",name:"Tesla",years:["2020","2021","2022","2023","2024","2025"],
+ fy:"日历年，截止 12-31；5:1(2020-08) 与 3:1(2022-08) 拆股已复权",
+ rev:[31536,53823,81462,96773,97690,94827],
+ gp:[6630,13606,20853,17660,17450,17094],
+ oi:[1994,6523,13656,8891,7076,4355],
+ ni:[690,5524,12583,14999,7130,3794],
+ eps:[0.21,1.63,3.62,4.30,2.04,1.08],
+ sh:[3249,3386,3475,3485,3498,3528],
+ ocf:[5943,11497,14724,13256,14923,14747],
+ capex:[3232,6514,7163,8899,11342,8527],
+ cash:[19384,17707,22185,29094,36563,44059],
+ debt:[11688,6834,3099,5230,8213,8376],
+ cross:"stockanalysis × SEC EDGAR XBRL：营收/净利/EPS/OCF 六年精确一致；CapEx 2020 差 +2.4% 为口径（含太阳能设备 ~75，与特斯拉 2025 重述口径一致），2021/22 差 0.49%/0.07%。2025 全字段与官方 8-K 一致。EPS×股数最大偏差 1.1%（2020）。",
+ disc:["营业利润保留 as-reported（S&P 标准化剔除重组：2020 1,951 vs 1,994；2024 7,659 vs 7,076，+8.2%）。",
+       "总债务 = 债务 + 融资租赁、剔除经营租赁（2025：1,569+71+6,584+152 = 8,376，与官方资产负债表 1,640+6,736 一致）；债务主体为非追索权（2025-12 非追索 8,150 vs 追索 3）。",
+       "2024 净利保留 EPS 分子口径 7,130（deck headline 归母 7,091，+0.55%）。"],
+ notes:["净利为归属普通股东口径（含 NCI 总额：862/5,644/12,587/14,974/7,153/3,855）。",
+        "2023 含递延税估值释放 5,927（税后，≈$1.70/股）；数字资产损益：2021 −101 / 2022 −204 / 2024 +589 / 2025 −68（税前）。估值前需正常化。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/tsla/financials/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/tsla/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/tsla/financials/balance-sheet/"]],
+      b:[["SEC EDGAR XBRL companyfacts","https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json"]],
+      c:[["Tesla FY2025 官方新闻稿","https://ir.tesla.com/press-release/tesla-releases-fourth-quarter-and-full-year-2025-financial-results"],["SEC 8-K Ex-99.1 同稿","https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm"]]}},
+{id:"meta",name:"Meta",years:["2020","2021","2022","2023","2024","2025"],
+ fy:"日历年，截止 12-31",
+ rev:[85965,117929,116609,134902,164501,200966],
+ gp:[69273,95280,91360,108943,134340,164791],
+ oi:[32671,46753,28944,46751,69380,83276],
+ ni:[29146,39370,23200,39098,62360,60458],
+ eps:[10.09,13.77,8.59,14.87,23.86,23.49],
+ sh:[2888,2859,2702,2629,2614,2574],
+ ocf:[38747,57683,50475,71113,91328,115800],
+ capex:[15163,18690,31186,27045,37256,69691],
+ cash:[61954,47998,40738,65403,77815,81592],
+ debt:[0,0,9923,18385,28826,58744],
+ cross:"stockanalysis × macrotrends × SEC XBRL：营收/净利/EPS/OCF 六年一致；2022 营业利润保留 as-reported 28,944（S&P 标准化 33,555，剔除重组 4,611，+15.9%）；2021 CapEx 保留 10-K 18,690（macrotrends 18,567 扣出售回款，0.66%）。2025 全字段与官方新闻稿一致。EPS×股数偏差 ≤0.05%。",
+ disc:["CapEx 两口径：本表 = 现金流购建 P&E（2025: 69,691）；公司headline 含融资租赁本金（2025: 72,215）。对应 FCF：本表 46,109 vs 公司口径 43,585。",
+       "总债务全部为长期票据（2022 起发债，2025-10 发行约 300 亿），六年均无短期借款/一年内到期；融资租赁与经营租赁剔除。"],
+ notes:["毛利推导（营收−营业成本）：营业成本 16,692/22,649/25,249/25,959/30,161/36,175。",
+        "2022 被 Reality Labs 亏损 + 重组 46 亿压垮；2025 净利率下降因 OBBBA 一次性税 charge（报告税率 30% vs 剔除后 13%）。估值前需正常化。",
+        "融资租赁本金（融资活动）：604/677/850/1,058/1,969/2,524。"],
+ src:{a:[["stockanalysis 利润表","https://stockanalysis.com/stocks/meta/financials/income-statement/"],["stockanalysis 现金流","https://stockanalysis.com/stocks/meta/financials/cash-flow-statement/"],["stockanalysis 资产负债","https://stockanalysis.com/stocks/meta/financials/balance-sheet/"]],
+      b:[["macrotrends 营收","https://www.macrotrends.net/stocks/charts/META/meta-platforms/revenue"],["macrotrends 净利","https://www.macrotrends.net/stocks/charts/META/meta-platforms/net-income"],["macrotrends EPS","https://www.macrotrends.net/stocks/charts/META/meta-platforms/eps-earnings-per-share-diluted"],["macrotrends OCF","https://www.macrotrends.net/stocks/charts/META/meta-platforms/cash-flow-from-operating-activities"],["macrotrends FCF","https://www.macrotrends.net/stocks/charts/META/meta-platforms/free-cash-flow"],["SEC EDGAR XBRL companyfacts","https://data.sec.gov/api/xbrl/companyfacts/CIK0001326801.json"]],
+      c:[["Meta FY2025 官方新闻稿(IR)","https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/"],["PR Newswire 官方同稿","https://www.prnewswire.com/news-releases/meta-reports-fourth-quarter-and-full-year-2025-results-302673127.html"]]}}
+];
+
+const fmtM = x => Math.round(x).toLocaleString("en-US");
+const fmtB = x => (x/100).toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1});
+const pct = (a,b) => (a/b*100);
+const f1 = x => x.toFixed(1);
+
+function checks(c){
+  return c.years.map((y,i)=>{
+    const fcf=c.ocf[i]-c.capex[i];
+    const epsCalc=c.eps[i]*c.sh[i];
+    const dev=(epsCalc-c.ni[i])/Math.abs(c.ni[i])*100;
+    const exactEps=c.ni[i]/c.sh[i];
+    return {y,fcf,epsCalc,dev,exactEps,gm:pct(c.gp[i],c.rev[i]),om:pct(c.oi[i],c.rev[i]),nm:pct(c.ni[i],c.rev[i]),
+            yoy:i>0?pct(c.rev[i]-c.rev[i-1],c.rev[i-1]):null};
+  });
+}
+
+function mainTable(c){
+  const ck=checks(c);
+  const row=(label,arr,fmt,cls)=>`<tr class="${cls||""}"><td>${label}</td>`+arr.map(v=>`<td>${fmt(v)}</td>`).join("")+`</tr>`;
+  let h=`<tr><th>项目（百万美元）</th>`+c.years.map(y=>`<th>${y}</th>`).join("")+`</tr>`;
+  h+=row("营收",c.rev,fmtM);
+  h+=row("毛利",c.gp,fmtM);
+  h+=row("营业利润",c.oi,fmtM);
+  h+=row("净利润",c.ni,fmtM);
+  h+=row("稀释EPS（$）",c.eps,v=>v.toFixed(2));
+  h+=row("稀释加权股数（百万）",c.sh,v=>fmtM(v));
+  h+=row("经营现金流 OCF",c.ocf,fmtM);
+  h+=row("资本开支 CapEx",c.capex,fmtM);
+  h+=row("FCF = OCF − CapEx（复算）",ck.map(x=>x.fcf),fmtM,"derived");
+  h+=row("现金+短期投资",c.cash,fmtM);
+  h+=row("总债务（剔除经营租赁）",c.debt,fmtM);
+  h+=row("毛利率（复算）",ck.map(x=>x.gm),v=>f1(v)+"%","derived");
+  h+=row("营业利润率（复算）",ck.map(x=>x.om),v=>f1(v)+"%","derived");
+  h+=row("净利率（复算）",ck.map(x=>x.nm),v=>f1(v)+"%","derived");
+  h+=row("营收同比（复算）",ck.map(x=>x.yoy==null?"—":f1(x.yoy)+"%"),v=>v,"derived");
+  return h;
+}
+
+function verifyTable(c){
+  const ck=checks(c);
+  let h=`<tr><th>年</th><th>EPS×股数</th><th>净利润</th><th>偏差</th><th>判定</th><th>精确EPS=净利÷股数</th><th>FCF复算</th></tr>`;
+  ck.forEach(x=>{
+    const pass=Math.abs(x.dev)<=2;
+    h+=`<tr><td>${x.y}</td><td>${fmtM(x.epsCalc)}</td><td>${fmtM(c.ni[ck.indexOf(x)])}</td><td>${x.dev>=0?"+":""}${x.dev.toFixed(2)}%</td><td class="${pass?"ok":"warn"}">${pass?"✓":"⚠ 舍入"}</td><td>${x.exactEps.toFixed(4)}</td><td>${fmtM(x.fcf)}</td></tr>`;
+  });
+  return h;
+}
+
+function srcCard(c){
+  const grp=(t,list)=>`<div class="src-group"><div class="t">${t}</div><ul>`+list.map(([label,url])=>`<li><a href="${url}" target="_blank" rel="noopener">${label}</a></li>`).join("")+`</ul></div>`;
+  return `<div class="card"><h2><span class="step">来源</span>采集链接与官方证明</h2>
+    ${grp("A · 历史数据主源",c.src.a)}
+    ${grp("B · 独立交叉源",c.src.b)}
+    ${grp("C · 最新财年官方逐项链",c.src.c)}
+    <div class="note blue"><b>交叉结果</b>：${c.cross}</div>
+    <div class="src-group"><div class="t">差异日志（&gt;0.5% 或定义性差异，保留值与原因）</div><ul>${c.disc.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+    <div class="src-group"><div class="t">口径备注</div><ul>${c.notes.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+  </div>`;
+}
+
+function companyPage(c){
+  return `<section id="pg-${c.id}" hidden>
+    <div class="card"><h2><span class="step">${c.id.toUpperCase()}</span>${c.name} · 六财年主表</h2>
+      <div class="method-intro">${c.fy}</div>
+      <div class="scroll"><table>${mainTable(c)}</table></div>
+    </div>
+    <div class="card"><h2><span class="step">验证</span>数学自洽复算（EPS×股数≈净利，容差2%）</h2>
+      <div class="scroll"><table>${verifyTable(c)}</table></div>
+      <div class="note">⚠ 仅表示 EPS 两位小数舍入导致偏差超 2%，"精确EPS"列给出 净利÷股数 的四位小数供核对；FCF 复算 = OCF − CapEx，与主表推导行一致。</div>
+    </div>
+    ${srcCard(c)}
+  </section>`;
+}
+
+function overviewPage(){
+  let h=`<tr><th>公司</th><th>最新财年</th><th>营收</th><th>营收同比</th><th>6年CAGR</th><th>毛利率</th><th>营业利润率</th><th>净利率</th><th>FCF</th><th>现金+短投</th><th>总债务</th><th>净现金(简口径)</th></tr>`;
+  C.forEach(c=>{
+    const i=c.years.length-1, ck=checks(c)[i];
+    const cagr=(Math.pow(c.rev[i]/c.rev[0],1/(c.years.length-1))-1)*100;
+    h+=`<tr><td>${c.name}</td><td>${c.years[i]}</td><td>${fmtM(c.rev[i])}</td><td>${f1(ck.yoy)}%</td><td>${f1(cagr)}%</td><td>${f1(ck.gm)}%</td><td>${f1(ck.om)}%</td><td>${f1(ck.nm)}%</td><td>${fmtM(ck.fcf)}</td><td>${fmtM(c.cash[i])}</td><td>${fmtM(c.debt[i])}</td><td>${fmtM(c.cash[i]-c.debt[i])}</td></tr>`;
+  });
+  return `<section id="pg-overview">
+    <div class="card"><h2><span class="step">总览</span>最新财年横向对比（百万美元）</h2>
+      <div class="scroll"><table>${h}</table></div>
+      <div class="note">净现金(简口径) = 现金+短投 − 总债务，<b>不含</b>长期/非上市有价证券（如 NVDA 估值页的 654 亿含长期有价股权，口径更宽）。CAGR 为 6 年营收复合增速（5 个间隔）。GAAP 净利含一次性项，横向对比净利率时注意各公司页备注。</div>
+    </div>
+    <div class="card"><h2><span class="step">读法</span>怎么把这张表喂给估值模型</h2>
+      <ul>
+        <li><b>FCF 基数</b>：看"FCF 复算"行的最近 2–3 年 + 最新季度年化，警惕应收/存货占用（NVDA FY27Q3 的 FCF/净利=69% 即此类）。</li>
+        <li><b>增速 g</b>：看"营收同比"行的趋势——NVDA 从 +114%(FY25) 到 +65%(FY26) 已在放缓，不能把峰值永久化。</li>
+        <li><b>毛利率/营业利润率</b>：定价权与经营杠杆的证据；NVDA 71–75% vs TSLA 18% vs AMZN 50%，护城河层级一目了然。</li>
+        <li><b>股本</b>：AAPL/MSFT/META 逐年缩减（回购增厚 EPS），AMZN/TSLA 缓慢增加——EPS 推导要用对应年份股数。</li>
+        <li><b>净现金</b>：DCF 加项；GOOGL/MSFT/META 现金厚，AMZN/TSLA 债务结构特殊（租赁/非追索），口径见各页。</li>
+      </ul>
+    </div>
+  </section>`;
+}
+
+// ---------- 组装 ----------
+const tabsEl=document.getElementById("tabs"), pagesEl=document.getElementById("pages");
+tabsEl.innerHTML = `<button data-pg="overview" class="active">总览</button>` + C.map(c=>`<button data-pg="${c.id}">${c.name}</button>`).join("");
+pagesEl.innerHTML = overviewPage() + C.map(companyPage).join("");
+tabsEl.addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  tabsEl.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));
+  pagesEl.querySelectorAll("section").forEach(s=>s.hidden = s.id!=="pg-"+b.dataset.pg);
+});
+
+// ---------- 全局自检（供浏览器核对） ----------
+window.__audit = () => {
+  const out=[];
+  C.forEach(c=>{
+    checks(c).forEach((x,i)=>{
+      out.push({co:c.id,y:x.y,fcfOk:x.fcf===c.ocf[i]-c.capex[i],epsDev:+x.dev.toFixed(2),epsPass:Math.abs(x.dev)<=2});
+    });
+  });
+  return out;
+};
+</script>
+</body>
+</html>
